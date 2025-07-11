@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Anjana Deivasigamani - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <section class="hero">
+      <img src="assets/img/profile.jpg" alt="Anjana's photo" class="profile-img"/>
+      <h2><span id="typed"></span></h2>
+      <p>MS Data Science | Cloud | ML | DevOps</p>
+      <a href="#projects" class="cta">Explore Projects</a>
+    </section>
+  </header>
+
+  <main>
+    <section id="about" class="section" data-aos="fade-up">
+      <h2>About Me</h2>
+      <p>I'm Anjana, a passionate data scientist and developer with experience in building end-to-end ML pipelines and scalable cloud apps. Currently pursuing MS in Data Science at Northeastern University.</p>
+    </section>
+
+    <section id="projects" class="section" data-aos="fade-right">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://via.placeholder.com/300x150?text=SellerCentral+Chatbot" alt="Chatbot"/>
+          <h3>SellerCentral Chatbot</h3>
+          <p>AI chatbot using LangChain, FastAPI, LLaMA, deployed with Docker and GCP.</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x150?text=Beauty+of+Safety" alt="Beauty of Safety"/>
+          <h3>The Beauty of Safety</h3>
+          <p>Toxicity analysis of beauty products using R and LightGBM.</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x150?text=DineTrack" alt="DineTrack"/>
+          <h3>DineTrack</h3>
+          <p>Restaurant analytics dashboard using R, MySQL, and Google Cloud SQL.</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x150?text=Churn+Prediction" alt="Churn Prediction"/>
+          <h3>Customer Churn Prediction</h3>
+          <p>Deployed machine learning model in Streamlit for real-time churn analysis.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section" data-aos="zoom-in">
+      <h2>Skills</h2>
+      <p>Python, R, SQL, FastAPI, Airflow, Docker, GCP, AWS, Streamlit</p>
+    </section>
+
+    <section id="experience" class="section" data-aos="fade-up">
+      <h2>Experience</h2>
+      <div class="card">
+        <h3>Xome Pvt. Ltd. — Full-Stack Developer Intern</h3>
+        <p>Designed and developed an Online Auction Management System using ASP.NET Core MVC. Built Excel upload modules and automated backend services, reducing manual work by 80%.</p>
+      </div>
+    </section>
+
+    <section id="publications" class="section" data-aos="fade-up">
+      <h2>Publications</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://via.placeholder.com/300x150?text=Publication+1" alt="Paper 1"/>
+          <h3>Customer Emotion Analysis (Taylor & Francis)</h3>
+          <p><a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003428473-44/customer-emotion-analysis-food-review-images-using-deep-learning-review-jagadeesh-akhilesh-ravikumar-anjana-deivasigamani-dharshini" target="_blank">Read Publication</a></p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x150?text=Publication+2" alt="Paper 2"/>
+          <h3>IEEE Emotion Analysis Using GAN</h3>
+          <p><a href="https://ieeexplore.ieee.org/document/10128567" target="_blank">View on IEEE Xplore</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section" data-aos="fade-up">
+      <h2>Contact</h2>
+      <p>Email: deivasigamani.a@northeastern.edu</p>
+      <p><a href="https://github.com/AnjanaDevan27" target="_blank">GitHub</a> | 
+         <a href="https://www.linkedin.com/in/anjana-deivasigamani" target="_blank">LinkedIn</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Anjana Deivasigamani</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    var typed = new Typed("#typed", {
+      strings: ["Hi, I'm Anjana.", "Data Scientist.", "ML Engineer.", "Cloud Developer."],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true
+    });
+  </script>
+</body>
+</html>
