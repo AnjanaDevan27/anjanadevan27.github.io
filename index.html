@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Anjana Deivasigamani - Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>Anjana Deivasigamani | Data Scientist &amp; ML Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Anjana Deivasigamani — Data Scientist &amp; ML Engineer specializing in LLMs, cloud pipelines, and analytics. MS student at Northeastern University, open to full-time roles in 2026." />
+  <meta property="og:title" content="Anjana Deivasigamani | Data Scientist &amp; ML Engineer" />
+  <meta property="og:description" content="Data Scientist &amp; ML Engineer specializing in LLMs, cloud pipelines, and analytics. MS @ Northeastern University." />
+  <meta property="og:image" content="https://anjanadevan27.github.io/images/profile.jpg" />
+  <meta property="og:url" content="https://anjanadevan27.github.io" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
   <header>
@@ -14,101 +27,376 @@
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#publications">Publications</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#resume">Resume</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+
+    <button id="theme-toggle" class="theme-toggle">
+      <i class="fas fa-moon"></i>
+    </button>
+
     <section class="hero">
-      <img src="assets/img/profile.jpg" alt="Anjana's photo" class="profile-img"/>
-      <h2><span id="typed"></span></h2>
-      <p>MS Data Science | Cloud | ML | DevOps</p>
-      <a href="#projects" class="cta">Explore Projects</a>
+      <img src="images/profile.jpg" alt="Anjana's photo" class="profile-img" onclick="openFullImage()" />
+      <div id="fullImageModal" class="modal" onclick="closeFullImage()">
+        <img src="images/profile.jpg" class="modal-content" alt="Full-size profile" />
+      </div>
+      <!-- <h1 class="hero-name">Anjana Deivasigamani</h1> -->
+      <p class="hero-subtitle">Data Scientist &amp; ML Engineer &nbsp;·&nbsp; MS @ Northeastern University</p>
+      <span class="availability-badge"><i class="fas fa-circle"></i>&nbsp;Open to full-time</span>
     </section>
   </header>
 
   <main>
+
+    <!-- ── About ── -->
     <section id="about" class="section" data-aos="fade-up">
-      <h2>About Me</h2>
-      <p>I'm Anjana, a passionate data scientist and developer with experience in building end-to-end ML pipelines and scalable cloud apps. Currently pursuing MS in Data Science at Northeastern University.</p>
+      <h2 class="about-title"><span id="about-typed"></span></h2>
+      <p>
+        Give me a complex dataset and a problem worth solving — that's where I do my best work.
+        I've built RAG-powered chatbots, toxicity classifiers, churn prediction models, and cloud data pipelines — across GCP, BigQuery, MySQL, and more.
+        I'm actively seeking full-time roles as a <em>Data Scientist</em>, <em>Data Analyst</em>, or <em>AI/ML Engineer</em>.
+        I believe the best insights come from asking the right question — and I'm never short of those.
+      </p>
     </section>
 
-    <section id="projects" class="section" data-aos="fade-right">
+    <!-- ── Projects ── -->
+    <section id="projects" class="section" data-aos="fade-up">
       <h2>Projects</h2>
       <div class="grid">
-        <div class="card">
-          <img src="https://via.placeholder.com/300x150?text=SellerCentral+Chatbot" alt="Chatbot"/>
-          <h3>SellerCentral Chatbot</h3>
-          <p>AI chatbot using LangChain, FastAPI, LLaMA, deployed with Docker and GCP.</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/300x150?text=Beauty+of+Safety" alt="Beauty of Safety"/>
-          <h3>The Beauty of Safety</h3>
-          <p>Toxicity analysis of beauty products using R and LightGBM.</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/300x150?text=DineTrack" alt="DineTrack"/>
-          <h3>DineTrack</h3>
-          <p>Restaurant analytics dashboard using R, MySQL, and Google Cloud SQL.</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/300x150?text=Churn+Prediction" alt="Churn Prediction"/>
-          <h3>Customer Churn Prediction</h3>
-          <p>Deployed machine learning model in Streamlit for real-time churn analysis.</p>
-        </div>
+
+        <a href="projects/project1.html" class="card-link">
+          <div class="card">
+        <iframe
+          src="images/project1.html"
+          scrolling="no"
+          style="width:100%; aspect-ratio:1/1; border:none; border-radius:8px; pointer-events:none; display:block;">
+        </iframe>
+            <!-- <img src="images/project1.html" alt="SellerCentral Chatbot" /> -->
+            <h3>SellerCentral Chatbot</h3>
+            <div class="tag-container">
+              <span class="tag">LangChain</span>
+              <span class="tag">LLaMA</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">GCP</span>
+            </div>
+            <p>AI-powered chatbot using LangChain, LLaMA, FastAPI, and GCP for Amazon sellers.</p>
+            <span class="card-cta">View Project <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <a href="projects/project2.html" class="card-link">
+          <div class="card">
+             <iframe
+          src="images/project2.html"
+          scrolling="no"
+          style="width:100%; aspect-ratio:1/1; border:none; border-radius:8px; pointer-events:none; display:block;">
+        </iframe>
+            <!-- <img src="images/project2.png" alt="Beauty of Safety" /> -->
+            <h3>The Beauty of Safety</h3>
+            <div class="tag-container">
+              <span class="tag">Pandas</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">Matplotlib</span>
+            </div>
+            <p>Toxicity classification of cosmetic chemicals using public data and ML models.</p>
+            <span class="card-cta">View Project <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <a href="projects/project3.html" class="card-link">
+          <div class="card">
+            <iframe
+          src="images/project3.html"
+          scrolling="no"
+          style="width:100%; aspect-ratio:1/1; border:none; border-radius:8px; pointer-events:none; display:block;">
+        </iframe>
+            <!-- <img src="images/project3.png" alt="DineTrack" /> -->
+            <h3>DineTrack</h3>
+            <div class="tag-container">
+              <span class="tag">MySQL</span>
+              <span class="tag">R</span>
+              <span class="tag">GCP</span>
+              <span class="tag">DBI</span>
+            </div>
+            <p>Restaurant visit analytics platform built on MySQL, GCP, and R for BI dashboards.</p>
+            <span class="card-cta">View Project <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <a href="projects/project4.html" class="card-link">
+          <div class="card">
+            <iframe
+          src="images/project4.html"
+          scrolling="no"
+          style="width:100%; aspect-ratio:1/1; border:none; border-radius:8px; pointer-events:none; display:block;">
+        </iframe>
+            <!-- <img src="images/project4.png" alt="Churn Prediction" /> -->
+            <h3>Customer Churn Prediction</h3>
+            <div class="tag-container">
+              <span class="tag">Streamlit</span>
+              <span class="tag">sklearn</span>
+              <span class="tag">Joblib</span>
+              <span class="tag">Python</span>
+            </div>
+            <p>Streamlit-based churn predictor for telecom companies with sklearn and joblib.</p>
+            <span class="card-cta">View Project <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
       </div>
     </section>
 
-    <section id="skills" class="section" data-aos="zoom-in">
-      <h2>Skills</h2>
-      <p>Python, R, SQL, FastAPI, Airflow, Docker, GCP, AWS, Streamlit</p>
-    </section>
+<!-- ── Experience ── -->
+<section id="experience" class="section" data-aos="fade-up">
+  <h2>Experience</h2>
 
-    <section id="experience" class="section" data-aos="fade-up">
-      <h2>Experience</h2>
-      <div class="card">
-        <h3>Xome Pvt. Ltd. — Full-Stack Developer Intern</h3>
-        <p>Designed and developed an Online Auction Management System using ASP.NET Core MVC. Built Excel upload modules and automated backend services, reducing manual work by 80%.</p>
-      </div>
-    </section>
+  <div class="card">
+    <h3>Beauty Intelligence LLC — Data Analyst Intern</h3>
+    <p class="meta"><em>USA | Aug 2025 – Dec 2025</em></p>
+    <ul>
+      <li>Analyzed large-scale POS datasets to identify product trends, frequency patterns, and revenue insights.</li>
+      <li>Built data cleaning and transformation pipelines to standardize UPC-level product data and improve data quality.</li>
+      <li>Applied market basket analysis to generate co-purchase insights and optimize product bundling strategies.</li>
+      <li>Developed automated data workflows and cloud-based pipelines using Python and BigQuery for scalable analytics.</li>
+    </ul>
+  </div>
 
+  <div class="card" style="margin-top: 1.5rem;">
+    <h3>Xome Pvt. Ltd. — Full-Stack Developer Intern</h3>
+    <p class="meta"><em>Chennai, India | Jan 2023 – July 2023</em></p>
+    <ul>
+      <li>Built an Online Auction Management System using .NET Core MVC.</li>
+      <li>Developed Excel ingestion workflows for database insert and update operations.</li>
+      <li>Implemented background processing services using .NET Core Worker Service.</li>
+    </ul>
+  </div>
+</section>
+
+    <!-- ── Publications ── -->
     <section id="publications" class="section" data-aos="fade-up">
       <h2>Publications</h2>
       <div class="grid">
         <div class="card">
-          <img src="https://via.placeholder.com/300x150?text=Publication+1" alt="Paper 1"/>
-          <h3>Customer Emotion Analysis (Taylor & Francis)</h3>
-          <p><a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003428473-44/customer-emotion-analysis-food-review-images-using-deep-learning-review-jagadeesh-akhilesh-ravikumar-anjana-deivasigamani-dharshini" target="_blank">Read Publication</a></p>
+          <iframe
+          src="images/paper1.html"
+          scrolling="no"
+          style="width:100%; aspect-ratio:1/1; border:none; border-radius:8px; pointer-events:none; display:block;">
+        </iframe>
+          <!-- <img src="images/paper1.png" alt="Customer Emotion Analysis" />-->
+          <h3>Customer Emotion Analysis on Food Review Images Using Deep Learning</h3> 
+          <a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003428473-44/customer-emotion-analysis-food-review-images-using-deep-learning-review-jagadeesh-akhilesh-ravikumar-anjana-deivasigamani-dharshini"
+             target="_blank" rel="noopener">Read Publication →</a>
         </div>
         <div class="card">
-          <img src="https://via.placeholder.com/300x150?text=Publication+2" alt="Paper 2"/>
-          <h3>IEEE Emotion Analysis Using GAN</h3>
-          <p><a href="https://ieeexplore.ieee.org/document/10128567" target="_blank">View on IEEE Xplore</a></p>
+          <iframe
+          src="images/paper2.html"
+          scrolling="no"
+          style="width:100%; aspect-ratio:1/1; border:none; border-radius:8px; pointer-events:none; display:block;">
+        </iframe>
+          <!-- <img src="images/paper2.png" alt="IEEE Paper" />-->
+          <h3>IEEE Smart Dustbin Using Node MCU</h3></br>
+          <a href="https://ieeexplore.ieee.org/document/10128567" target="_blank" rel="noopener">Read Publication →</a>
         </div>
       </div>
     </section>
 
+    <!-- ── Skills ── -->
+    <section id="skills" class="section" data-aos="fade-up">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4>Languages</h4>
+          <div class="skill-pills">
+            <span class="skill-pill"><i class="devicon-python-plain colored"></i> Python</span>
+            <span class="skill-pill"><i class="devicon-r-plain colored"></i> R</span>
+            <span class="skill-pill"><i class="fas fa-database"></i> SQL</span>
+            <span class="skill-pill"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
+            <span class="skill-pill"><i class="devicon-html5-plain colored"></i> HTML</span>
+            <span class="skill-pill"><i class="devicon-css3-plain colored"></i> CSS</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>Frameworks &amp; Libraries</h4>
+          <div class="skill-pills">
+            <span class="skill-pill"><i class="devicon-fastapi-plain colored"></i> FastAPI</span>
+            <span class="skill-pill"><i class="devicon-flask-original"></i> Flask</span>
+            <span class="skill-pill"><i class="fas fa-stream"></i> Streamlit</span>
+            <span class="skill-pill"><i class="devicon-pandas-plain colored"></i> pandas</span>
+            <span class="skill-pill"><i class="devicon-numpy-plain colored"></i> NumPy</span>
+            <span class="skill-pill"><i class="fas fa-robot"></i> scikit-learn</span>
+            <span class="skill-pill"><i class="fas fa-chart-bar"></i> Matplotlib</span>
+            <span class="skill-pill"><i class="fas fa-chart-area"></i> ggplot2</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>ML &amp; NLP</h4>
+          <div class="skill-pills">
+            <span class="skill-pill"><i class="fas fa-brain"></i> LightGBM</span>
+            <span class="skill-pill"><i class="fas fa-tree"></i> Random Forest</span>
+            <span class="skill-pill"><i class="fas fa-vector-square"></i> SVM</span>
+            <span class="skill-pill"><i class="fas fa-spell-check"></i> Word2Vec</span>
+            <span class="skill-pill"><i class="fas fa-spell-check"></i> TF-IDF</span>
+            <span class="skill-pill"><i class="fas fa-comment-dots"></i> BERT</span>
+            <span class="skill-pill"><i class="fas fa-link"></i> LangChain</span>
+            <span class="skill-pill"><i class="fas fa-fire"></i> LLaMA</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>Cloud &amp; DevOps</h4>
+          <div class="skill-pills">
+            <span class="skill-pill"><i class="devicon-googlecloud-plain colored"></i> GCP</span>
+            <span class="skill-pill"><i class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS</span>
+            <span class="skill-pill"><i class="devicon-docker-plain colored"></i> Docker</span>
+            <span class="skill-pill"><i class="fas fa-wind"></i> Airflow</span>
+            <span class="skill-pill"><i class="devicon-git-plain colored"></i> Git</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>Databases</h4>
+          <div class="skill-pills">
+            <span class="skill-pill"><i class="devicon-mysql-plain colored"></i> MySQL</span>
+            <span class="skill-pill"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span>
+            <span class="skill-pill"><i class="devicon-mongodb-plain colored"></i> MongoDB</span>
+            <span class="skill-pill"><i class="devicon-googlecloud-plain colored"></i> BigQuery</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>Tools</h4>
+          <div class="skill-pills">
+            <span class="skill-pill"><i class="devicon-vscode-plain colored"></i> VS Code</span>
+            <span class="skill-pill"><i class="devicon-github-original colored"></i> GitHub</span>
+            <span class="skill-pill"><i class="devicon-jupyter-plain colored"></i> Jupyter</span>
+            <span class="skill-pill"><i class="devicon-postman-plain colored"></i> Postman</span>
+            <span class="skill-pill"><i class="fab fa-google"></i> Colab</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Why Pink ── -->
+    <section id="why-pink" class="section pink-section" data-aos="fade-up">
+      <h2>Yes, Everything Is Pink.</h2>
+      <p class="pink-intro">
+        Intentionally. Here's the evidence that it's actually a great idea.
+      </p>
+
+      <div class="pink-grid">
+
+        <div class="pink-card">
+          <span class="pink-card-icon">🎨</span>
+          <h4>Pink Is a Missing Value</h4>
+          <p>
+            Pink has no wavelength in the visible light spectrum — the brain <em>imputes</em> it
+            by blending red and violet signals. As a data scientist, I deeply respect
+            a colour that exists purely through intelligent gap-filling.
+          </p>
+        </div>
+
+        <div class="pink-card">
+          <span class="pink-card-icon">〰️</span>
+          <h4>Pink Noise Is a Real Signal Type</h4>
+          <p>
+            In signal processing, pink noise (1/f noise) sits between white noise (pure random)
+            and red noise (heavily correlated). It's the balanced middle ground —
+            structured enough to be meaningful, varied enough to stay interesting.
+          </p>
+        </div>
+
+        <div class="pink-card">
+          <span class="pink-card-icon">📊</span>
+          <h4>Pink = High Value in Heatmaps</h4>
+          <p>
+            In correlation matrices and heatmaps, deep pink and red flag the strongest positive
+            relationships in the data — the most significant, the most worth investigating.
+            I aspire to be a strong positive correlation on any team.
+          </p>
+        </div>
+
+        <div class="pink-card">
+          <span class="pink-card-icon">🔢</span>
+          <h4>The Numbers: RGB(255, 105, 180)</h4>
+          <p>
+            Hot pink in RGB: R channel maxed at 255, G at 105, B at 180.
+            The red channel is doing the heavy lifting while green and blue provide balance.
+            Honestly, a solid team dynamic.
+          </p>
+        </div>
+
+        <div class="pink-card">
+          <span class="pink-card-icon">🔬</span>
+          <h4>A Controlled Experiment With Results</h4>
+          <p>
+            Baker-Miller Pink was tested in a controlled study and measurably reduced
+            aggression in participants within 15 minutes. Statistically significant.
+            Peer-reviewed. This portfolio is evidence-based design.
+          </p>
+        </div>
+
+        <div class="pink-card">
+          <span class="pink-card-icon">🌡️</span>
+          <h4>Colour Temperature: The Outlier</h4>
+          <p>
+            In HSL colour space, pink sits near hue 350° — just shy of completing a full rotation
+            back to red. It's technically an outlier on the wheel.
+            The best data points usually are.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="pink-closing">
+        TL;DR — pink is a missing value the brain intelligently imputes, a balanced signal type,
+        and a high-correlation indicator. <strong>The colour choice was always data-driven.</strong>
+      </p>
+    </section>
+
+    <!-- ── Resume ── -->
+    <section id="resume" class="section" data-aos="fade-up">
+      <h2>Resume</h2>
+      <p>You can view or download my resume below:</p>
+      <div class="resume-buttons">
+        <a href="resume/Anjana_Deivasigamani_Resume.pdf" class="btn-outline" target="_blank">
+          <i class="fas fa-eye"></i> View Resume
+        </a>
+        <a href="resume/Anjana_Deivasigamani_Resume.pdf" class="btn-outline" download>
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+      </div>
+    </section>
+
+    <!-- ── Contact ── -->
     <section id="contact" class="section" data-aos="fade-up">
       <h2>Contact</h2>
-      <p>Email: deivasigamani.a@northeastern.edu</p>
-      <p><a href="https://github.com/AnjanaDevan27" target="_blank">GitHub</a> | 
-         <a href="https://www.linkedin.com/in/anjana-deivasigamani" target="_blank">LinkedIn</a></p>
+      <p>
+        <a href="mailto:anjanadevan27@gmail.com" class="contact-email">
+          <i class="fas fa-envelope"></i> anjanadevan27@gmail.com
+        </a>
+      </p>
+      <div class="social-icons">
+        <a href="https://github.com/AnjanaDevan27" target="_blank" rel="noopener" class="icon-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/anjana-deivasigamani" target="_blank" rel="noopener" class="icon-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
     </section>
+
   </main>
 
   <footer>
-    <p>© 2025 Anjana Deivasigamani</p>
+    <div class="footer-inner">
+      <p>© 2026 Anjana Deivasigamani</p>
+    </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-    var typed = new Typed("#typed", {
-      strings: ["Hi, I'm Anjana.", "Data Scientist.", "ML Engineer.", "Cloud Developer."],
-      typeSpeed: 50,
-      backSpeed: 30,
-      loop: true
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

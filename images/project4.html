@@ -1,0 +1,53 @@
+
+<style>
+  .p4{width:100%;aspect-ratio:1;background:#fff5f7;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-radius:12px;border:1px solid #f0c8d4}
+  .gauge-wrap{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%)}
+  .user-row{position:absolute;top:10%;left:50%;transform:translateX(-50%);display:flex;gap:10px}
+  .avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;animation:fadepop 2.4s ease-in-out infinite}
+  .av1{background:#fce8ee;animation-delay:0s}
+  .av2{background:#f4c0d1;animation-delay:.4s}
+  .av3{background:#d4849a;animation-delay:.8s;transform:scale(.9)}
+  .av4{background:#b5667a;animation-delay:1.2s}
+  .av5{background:#fce8ee;animation-delay:1.6s}
+  .result-card{position:absolute;bottom:10%;left:50%;transform:translateX(-50%);background:#fff;border:1.5px solid #f4c0d1;border-radius:10px;padding:8px 20px;display:flex;align-items:center;gap:10px;font-family:sans-serif;white-space:nowrap}
+  .pct{font-size:22px;font-weight:700;color:#b5667a;animation:countup 3s ease-out infinite}
+  .lbl{font-size:11px;color:#d4849a;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+  .bar2-wrap{position:absolute;left:10%;right:10%;bottom:26%;display:flex;gap:5px;align-items:flex-end;height:36px}
+  .b2{flex:1;border-radius:3px 3px 0 0;animation:grow2 2.5s ease-in-out infinite alternate}
+  .b2:nth-child(1){background:#f4c0d1;animation-delay:0s}
+  .b2:nth-child(2){background:#e8aab8;animation-delay:.1s}
+  .b2:nth-child(3){background:#d4849a;animation-delay:.2s}
+  .b2:nth-child(4){background:#c47087;animation-delay:.3s}
+  .b2:nth-child(5){background:#b5667a;animation-delay:.4s}
+  .b2:nth-child(6){background:#d4849a;animation-delay:.5s}
+  .b2:nth-child(7){background:#e8aab8;animation-delay:.6s}
+  @keyframes fadepop{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1)}}
+  @keyframes countup{0%{opacity:.3}40%,80%{opacity:1}100%{opacity:.3}}
+  @keyframes grow2{from{height:8px}to{height:34px}}
+</style>
+<div class="p4">
+  <div class="user-row">
+    <div class="avatar av1">👤</div>
+    <div class="avatar av2">👤</div>
+    <div class="avatar av3">👤</div>
+    <div class="avatar av4">👤</div>
+    <div class="avatar av5">👤</div>
+  </div>
+  <svg class="gauge-wrap" width="130" height="75" viewBox="0 0 130 75">
+    <path d="M15 70 A50 50 0 0 1 115 70" fill="none" stroke="#fce8ee" stroke-width="12" stroke-linecap="round"/>
+    <path d="M15 70 A50 50 0 0 1 115 70" fill="none" stroke="#d4849a" stroke-width="12" stroke-linecap="round" stroke-dasharray="157" stroke-dashoffset="60">
+      <animate attributeName="stroke-dashoffset" values="157;60;157" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <text x="65" y="62" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#b5667a">Churn Risk</text>
+  </svg>
+  <div class="bar2-wrap">
+    <div class="b2"></div><div class="b2"></div><div class="b2"></div><div class="b2"></div>
+    <div class="b2"></div><div class="b2"></div><div class="b2"></div>
+  </div>
+  <div class="result-card">
+    <div>
+      <div class="pct">73%</div>
+    </div>
+    <div class="lbl">at-risk<br>customers</div>
+  </div>
+</div>

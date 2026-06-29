@@ -1,85 +1,841 @@
+/* ================================================
+   TABLE OF CONTENTS
+   1.  CSS Variables (Palette)
+   2.  Reset & Base
+   3.  Typography
+   4.  Navigation Bar
+   5.  Theme Toggle Button
+   6.  Hero Section
+   7.  Section Wrapper
+   8.  Cards & Grid
+   9.  Tag Bubbles
+   10. Skills Grid
+   11. Resume Buttons
+   12. Contact Section
+   13. Social Icons
+   14. Footer
+   15. Modal (Profile Image Lightbox)
+   16. Animations & Transitions
+   17. Dark Theme Override
+   18. Responsive / Media Queries
+================================================ */
 
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #000;
-    color: #fff;
+/* ================================================
+   1. CSS Variables — Dusty Rose / Baby Pink Palette
+================================================ */
+:root {
+  --accent:        #d4849a;          /* dusty rose — primary accent          */
+  --accent-light:  #e8aab8;          /* soft pink — hover states             */
+  --accent-dark:   #b5667a;          /* deep rose — active / pressed         */
+  --bg:            #fff5f7;          /* near-white blush background          */
+  --surface:       #ffffff;          /* card / panel surface                 */
+  --surface-alt:   #fce8ee;          /* very light pink — alt surface        */
+  --text:          #2e1a1e;          /* dark plum — primary text             */
+  --text-muted:    #6b4450;          /* muted rose-brown — secondary text    */
+  --border:        rgba(212, 132, 154, 0.25);
+  --shadow:        rgba(212, 132, 154, 0.2);
+  --radius:        10px;
+  --nav-height:    64px;
+}
+
+/* ================================================
+   2. Reset & Base
+================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  min-height: 100%;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Ambient glow blobs — background depth */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(90px);
+}
+
+body::before {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(212, 132, 154, 0.18) 0%, transparent 70%);
+  top: -120px;
+  left: -100px;
+}
+
+body::after {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(181, 102, 122, 0.13) 0%, transparent 70%);
+  bottom: 10%;
+  right: -80px;
+}
+
+main {
+  flex: 1;
+  padding-top: 90px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--accent-dark);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* ================================================
+   3. Typography
+================================================ */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--accent-dark);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2rem;   margin-bottom: 1.5rem; }
+h3 { font-size: 1.3rem; color: var(--text); }
+h4 { font-size: 1.1rem; }
+
+p {
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+strong { color: var(--text); }
+em     { color: var(--accent-dark); font-style: italic; }
+
+/* ================================================
+   4. Navigation Bar
+   — Used on ALL pages
+================================================ */
+nav {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  padding: 0.8rem 2rem;
+  background: rgba(255, 245, 247, 0.78);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 20px var(--shadow);
+  border: 1px solid var(--border);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav.scrolled {
+  background: rgba(255, 245, 247, 0.95);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  color: var(--text);
+  font-weight: 400;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border-radius: 16px;
+  padding: 0.3rem 0.6rem;
+}
+
+nav ul li a:hover {
+  background: rgba(212, 132, 154, 0.12);
+  color: var(--accent-dark);
+  padding: 0.3rem 1rem;
+}
+
+nav ul li a.active {
+  background: rgba(212, 132, 154, 0.15);
+  border: 1px solid var(--accent);
+  color: var(--accent-dark) !important;
+  padding: 0.3rem 1rem;
+  font-weight: 600;
+}
+
+/* ================================================
+   5. Theme Toggle Button
+   — Used on ALL pages
+================================================ */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--accent);
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.2);
+  color: var(--accent-dark);
+}
+
+/* ================================================
+   6. Hero Section
+   — index.html only
+================================================ */
+.hero {
+  padding: 2rem 3rem 1rem;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.profile-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 3rem auto 1rem;
+  border: 4px solid var(--accent-light);
+  box-shadow: 0 0 30px var(--shadow);
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.08);
+}
+
+/* ================================================
+   7. Section Wrapper
+   — Used on ALL pages
+================================================ */
+.section {
+  scroll-margin-top: 160px;
+  padding: 6rem 2rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* About section gets extra breathing room */
+#about.section {
+  max-width: 1200px;
+  padding: 2rem 3rem 6rem;
+  margin-top: -6rem;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+#about.section h2,
+.about-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--accent-dark);
+}
+
+/* ================================================
+   8. Cards & Grid
+   — Projects, Publications, Experience
+================================================ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding-top: 1rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow:
+    0 1px 3px rgba(212, 132, 154, 0.06),
+    0 4px 12px rgba(212, 132, 154, 0.10),
+    0 12px 28px rgba(212, 132, 154, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 2px 6px rgba(212, 132, 154, 0.10),
+    0 8px 24px rgba(212, 132, 154, 0.18),
+    0 20px 40px rgba(212, 132, 154, 0.10);
+  border-left-color: var(--accent-dark);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.card img:hover { transform: scale(1.02); }
+
+.card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0.5rem 0;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.card a {
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+
+.card a:hover { color: var(--accent); }
+
+.card ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* ================================================
+   9. Tag Bubbles (Tech Stack)
+================================================ */
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.tag {
+  background: var(--surface-alt);
+  color: var(--accent-dark);
+  border: 2px solid var(--accent);
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.4em 0.85em;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tag:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 8px var(--shadow);
+}
+
+/* ================================================
+   10. Skills Grid
+================================================ */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.skill-category {
+  background: var(--surface);
+  border-left: 5px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px var(--shadow);
+  border-left-color: var(--accent-dark);
+}
+
+.skill-category h4 {
+  font-size: 1.1rem;
+  color: var(--accent-dark);
+  margin-bottom: 0.6rem;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.skill-category h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.skill-category p {
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.skill-category p:hover { color: var(--accent-dark); }
+
+/* ================================================
+   11. Resume Buttons
+================================================ */
+.resume-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.resume-btn {
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  color: var(--accent-dark);
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease,
+              box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.resume-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 0 14px var(--shadow);
+  transform: translateY(-3px);
+}
+
+/* ================================================
+   12. Contact Section
+================================================ */
+.contact-email {
+  color: var(--text);
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.contact-email:hover { color: var(--accent-dark); }
+
+/* ================================================
+   13. Social Icons
+================================================ */
+.social-icons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.icon-link i {
+  font-size: 32px;
+  color: var(--accent);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-link:hover i {
+  transform: scale(1.2);
+  color: var(--accent-dark);
+}
+
+/* ================================================
+   14. Footer
+   — Used on ALL pages
+================================================ */
+footer {
+  padding: 1.2rem 1.5rem;
+  background: rgba(255, 245, 247, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+footer p {
+  margin: 0;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ================================================
+   15. Modal — Profile Image Lightbox
+   — index.html only
+================================================ */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background: rgba(46, 26, 30, 0.82);
+  cursor: zoom-out;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+  margin: 5% auto;
+  border-radius: 12px;
+  box-shadow: 0 0 40px var(--shadow);
+}
+
+/* ================================================
+   16. Animations & Transitions
+================================================ */
+
+/* Smooth global theme transition */
+body,
+nav,
+.card,
+.skill-category,
+.tag,
+.resume-btn,
+footer {
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+@keyframes gradientFlow {
+  0%   { background-position: 0% 50%;   }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%;   }
+}
+
+/* ================================================
+   17. Dark Theme Override
+   — toggled via JS: document.body.classList.toggle('dark-theme')
+================================================ */
+body.dark-theme {
+  --bg:          #1a0d10;
+  --surface:     #2a1318;
+  --surface-alt: #3a1c23;
+  --text:        #f5dde3;
+  --text-muted:  #c9a0aa;
+  --border:      rgba(212, 132, 154, 0.2);
+  --shadow:      rgba(212, 132, 154, 0.15);
+}
+
+body.dark-theme nav {
+  background: rgba(26, 13, 16, 0.82);
+}
+
+body.dark-theme nav.scrolled {
+  background: rgba(26, 13, 16, 0.97);
+}
+
+body.dark-theme footer {
+  background: rgba(26, 13, 16, 0.55);
+}
+
+body.dark-theme body::before {
+  background: radial-gradient(circle, rgba(212, 132, 154, 0.12) 0%, transparent 70%);
+}
+
+body.dark-theme body::after {
+  background: radial-gradient(circle, rgba(181, 102, 122, 0.09) 0%, transparent 70%);
+}
+
+/* ================================================
+   18. Why Pink Section
+================================================ */
+.pink-section {
+  background: linear-gradient(135deg, rgba(252, 232, 238, 0.6) 0%, rgba(255, 245, 247, 0.3) 100%);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  padding: 3rem 2rem 2.5rem;
+}
+
+.pink-intro {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.pink-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.pink-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.3rem 1.2rem 1rem;
+  box-shadow:
+    0 2px 8px rgba(212, 132, 154, 0.08),
+    0 8px 20px rgba(212, 132, 154, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pink-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+}
+
+.pink-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 4px 12px rgba(212, 132, 154, 0.14),
+    0 16px 32px rgba(212, 132, 154, 0.10);
+}
+
+.pink-card-icon {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.pink-card h4 {
+  font-size: 1rem;
+  color: var(--accent-dark);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.pink-card p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.pink-closing {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--surface-alt);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+/* ================================================
+   18. Section Heading Decorators
+================================================ */
+.section > h2 {
+  position: relative;
+  padding-bottom: 0.65rem;
+  display: inline-block;
+}
+
+.section > h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 44px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent-light));
+  border-radius: 99px;
+}
+
+/* ================================================
+   19. Hero Name / Subtitle / Availability Badge
+================================================ */
+.hero-name {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  margin-top: 0.75rem;
+  margin-bottom: 0.3rem;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 0.9rem;
+  font-weight: 400;
+}
+
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(76, 175, 80, 0.1);
+  color: #2e7d32;
+  border: 1.5px solid rgba(76, 175, 80, 0.35);
+  padding: 0.35em 1em;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.availability-badge i {
+  font-size: 0.5rem;
+  color: #4caf50;
+  animation: badgePulse 2s infinite;
+}
+
+body.dark-theme .availability-badge {
+  background: rgba(76, 175, 80, 0.15);
+  color: #81c784;
+  border-color: rgba(76, 175, 80, 0.3);
+}
+
+@keyframes badgePulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+/* ================================================
+   19. Skill Pills
+================================================ */
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.5rem;
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.28em 0.7em;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.skill-pill:hover {
+  background: var(--accent-light);
+  color: var(--text);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.skill-pill i {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ================================================
+   20. Responsive / Media Queries
+================================================ */
+@media (max-width: 768px) {
+  nav {
+    padding: 0.6rem 1rem;
+    width: 92%;
   }
-  nav, footer {
-    background-color: #8B0000;
-    padding: 1rem;
-    text-align: center;
-  }
+
   nav ul {
-    list-style: none;
-    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
-    padding: 0;
   }
+
   nav ul li a {
-    color: #fff;
-    text-decoration: none;
+    font-size: 0.85rem;
   }
-  .hero {
-    padding: 3rem;
-    text-align: center;
-    background-color: #111;
-  }
-  .hero .cta {
-    background-color: #ff0000;
-    padding: 0.5rem 1rem;
-    color: #fff;
-    text-decoration: none;
-  }
-  .section {
-    padding: 2rem;
-  }
-  .card {
-    background-color: #1a1a1a;
-    padding: 1rem;
-    margin: 1rem 0;
-    border-left: 5px solid #ff0000;
-  }
-  footer {
-    margin-top: 2rem;
-  }
-  
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-  }
-  
-  .hero {
-    padding-top: 6rem;
-  }
-  
+
+  .hero { padding: 1rem; }
+
   .profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 100px;
-    object-fit: cover;
-    margin: 1rem auto;
-    display: block;
-    border: 3px solid #ff0000;
+    width: 220px;
+    height: 220px;
   }
-  
-  nav {
-    padding: 0.5rem 1rem;
+
+  .hero-name     { font-size: 1.7rem; }
+  .hero-subtitle { font-size: 0.9rem; }
+
+  #about.section {
+    padding: 2rem 1.5rem 4rem;
+    margin-top: 0;
+    font-size: 1rem;
   }
-  
+
+  #about.section h2,
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .section {
+    padding: 4rem 1.2rem 1.5rem;
+  }
+
+  h2 { font-size: 1.6rem; }
+
+  .resume-buttons { flex-direction: column; align-items: center; }
+
   .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
   }
-  
-  .card img {
-    width: 100%;
-    border-radius: 4px;
-    margin-bottom: 0.5rem;
+
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
-  
+}
+
+@media (max-width: 480px) {
+  nav ul li a { font-size: 0.75rem; padding: 0.2rem 0.4rem; }
+  .theme-toggle { font-size: 1.4rem; }
+  .profile-img { width: 180px; height: 180px; }
+}
