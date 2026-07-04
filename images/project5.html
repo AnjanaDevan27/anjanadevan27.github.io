@@ -1,0 +1,38 @@
+<style>html.dark,html.dark body{background:#241016}html.dark body>div{background:#241016!important;border-color:#3a1c23!important}</style>
+
+<style>
+  .p5{width:100%;aspect-ratio:1;background:#fff5f7;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-radius:12px;border:1px solid #f0c8d4}
+  .p5 .title{position:absolute;top:12%;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:7px;font-family:sans-serif;font-size:13px;font-weight:700;color:#b5667a}
+  .p5 .live{width:8px;height:8px;border-radius:50%;background:#d4849a;animation:blink5 1.4s ease-in-out infinite}
+  .train{fill:#b5667a;animation:ride 5s linear infinite}
+  .veh{animation:ride 5s linear infinite}
+  .stop5{fill:#fff;stroke:#d4849a;stroke-width:2}
+  .kpi{position:absolute;bottom:11%;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+  .kpi div{background:#fff;border:1.5px solid #f4c0d1;border-radius:9px;padding:6px 11px;font-family:sans-serif;text-align:center}
+  .kpi .n{font-size:16px;font-weight:700;color:#b5667a;line-height:1.1}
+  .kpi .l{font-size:8px;color:#d4849a;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+  @keyframes blink5{0%,100%{opacity:1}50%{opacity:.25}}
+  @keyframes ride{0%{offset-distance:0%}100%{offset-distance:100%}}
+</style>
+<div class="p5">
+  <div class="title"><span class="live"></span> MBTA · Live</div>
+  <svg width="200" height="150" viewBox="0 0 200 150">
+    <!-- route lines -->
+    <path d="M20 60 Q80 30 110 70 T185 55" fill="none" stroke="#f4c0d1" stroke-width="5" stroke-linecap="round"/>
+    <path d="M30 115 Q90 95 130 110 T180 100" fill="none" stroke="#e8aab8" stroke-width="5" stroke-linecap="round"/>
+    <!-- stops -->
+    <circle class="stop5" cx="20" cy="60" r="4"/>
+    <circle class="stop5" cx="110" cy="70" r="4"/>
+    <circle class="stop5" cx="185" cy="55" r="4"/>
+    <circle class="stop5" cx="30" cy="115" r="4"/>
+    <circle class="stop5" cx="180" cy="100" r="4"/>
+    <!-- moving vehicles -->
+    <circle class="veh" r="5" fill="#b5667a" style="offset-path:path('M20 60 Q80 30 110 70 T185 55')"/>
+    <circle class="veh" r="5" fill="#d4849a" style="offset-path:path('M30 115 Q90 95 130 110 T180 100');animation-delay:-2.5s"/>
+  </svg>
+  <div class="kpi">
+    <div><div class="n">16M+</div><div class="l">predictions</div></div>
+    <div><div class="n">2 min</div><div class="l">refresh</div></div>
+    <div><div class="n">7</div><div class="l">routes</div></div>
+  </div>
+</div>

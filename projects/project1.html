@@ -2,49 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>SellerCentral Chatbot</title>
+  <title>SellerCentral Chatbot | Anjana Deivasigamani</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-
-  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
-<body>
-  <header>
-    <nav>
+<body class="subpage">
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="topbar" id="topbar">
+    <a href="../index.html" class="brand">Anjana<span>.</span></a>
+    <nav class="topnav" id="topnav">
       <ul>
-        <li><a href="../index.html"><i class="fas fa-arrow-left"></i> Back to Portfolio</a></li>
+        <li><a href="../index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a></li>
       </ul>
     </nav>
-
-    <section class="hero">
-      <h2>SellerCentral Chatbot</h2>
-    </section>
+    <div class="topbar-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+    </div>
   </header>
 
-  <main class="section" data-aos="fade-up">
-    <p>
-      <strong>SellerCentral Chatbot</strong> is an AI-powered virtual assistant that enables Amazon sellers to ask natural language questions about their product metrics, inventory, and overall store performance.
-    </p>
-    <p>
-      The solution integrates <strong>LangChain</strong> for orchestrating LLM capabilities, <strong>FastAPI</strong> for backend services, and <strong>LLaMA</strong> as the core model. It is containerized using <strong>Docker</strong>, scheduled through <strong>Airflow</strong>, and deployed to production on <strong>Google Cloud Platform (GCP)</strong>.
-    </p>
+  <main>
+    <section class="page-hero" data-aos="fade-up">
+      <h1>SellerCentral Chatbot</h1>
+      <div class="tag-container page-tags">
+        <span class="tag">RAG</span>
+        <span class="tag">LangChain</span>
+        <span class="tag">FAISS</span>
+        <span class="tag">Hugging Face</span>
+        <span class="tag">LLaMA</span>
+        <span class="tag">BigQuery</span>
+        <span class="tag">Docker</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">Airflow</span>
+        <span class="tag">GCP</span>
+      </div>
+    </section>
 
-    <a class="github-btn" href="https://github.com/aichatbot07/SellerCenteral-ChatBot-System" target="_blank">
-  <i class="fab fa-github"></i> GitHub Repo
-</a>
+    <div class="page-body" data-aos="fade-up">
+      <p>
+        <strong>SellerCentral Chatbot</strong> is a production-grade RAG (retrieval-augmented generation) assistant that lets Amazon sellers ask natural-language questions about their product metrics, reviews, and store performance.
+      </p>
+      <ul>
+        <li>Designed and deployed a production RAG pipeline using <strong>LangChain</strong> and <strong>LLaMA</strong> (via Groq); ran systematic experiments across Hugging Face embedding models, <strong>FAISS</strong> indexing strategies, and chunking configurations. Benchmarked against baseline LLM approaches using Precision@k, Recall@k, BLEU, and ROUGE-L — achieving <strong>95% response accuracy</strong> and <strong>sub-2-second latency for 90% of queries</strong>.</li>
+        <li>Established a data-quality framework with automated anomaly detection and bias checks across hundreds of thousands of records (flagging 27% as anomalous), enforced by 7 test modules covering schema validation, DAG execution, and ETL correctness.</li>
+        <li>Architected an <strong>Airflow</strong> ETL pipeline ingesting Amazon review data into <strong>BigQuery</strong> with incremental loading across 4 product categories; deployed end-to-end as a Dockerized <strong>FastAPI</strong> service on <strong>GCP Cloud Run</strong> with CI/CD via GitHub Actions.</li>
+      </ul>
+      <a class="github-btn" href="https://github.com/aichatbot07/SellerCenteral-ChatBot-System" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i> GitHub Repo
+      </a>
+    </div>
   </main>
 
   <footer>
-    <p>© 2025 Anjana Deivasigamani</p>
+    <div class="footer-inner"><p>© 2026 Anjana Deivasigamani</p></div>
   </footer>
 
-  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  <script src="../script.js"></script>
 </body>
 </html>

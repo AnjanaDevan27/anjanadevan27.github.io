@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Boston MBTA Real-Time Dashboard | Anjana Deivasigamani</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+<body class="subpage">
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="topbar" id="topbar">
+    <a href="../index.html" class="brand">Anjana<span>.</span></a>
+    <nav class="topnav" id="topnav">
+      <ul>
+        <li><a href="../index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a></li>
+      </ul>
+    </nav>
+    <div class="topbar-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero" data-aos="fade-up">
+      <h1>Boston MBTA Real-Time Dashboard</h1>
+      <div class="tag-container page-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Apache Airflow</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">AWS RDS</span>
+        <span class="tag">AWS EC2</span>
+        <span class="tag">Astronomer</span>
+        <span class="tag">Streamlit</span>
+        <span class="tag">Plotly</span>
+        <span class="tag">GitHub Actions</span>
+      </div>
+    </section>
+
+    <div class="page-body" data-aos="fade-up">
+      <p>
+        <strong>Boston MBTA Real-Time Dashboard</strong> is a production-grade, real-time ETL pipeline that pulls live
+        transit data from the <strong>MBTA V3 API</strong> every 2 minutes, orchestrated by <strong>Apache Airflow</strong>
+        on Astronomer, stored in <strong>PostgreSQL on AWS RDS</strong>, and visualized in an interactive
+        <strong>Streamlit</strong> dashboard.
+      </p>
+
+      <h4>What I built</h4>
+      <ul>
+        <li>Engineered an end-to-end <strong>Extract → Transform → Load</strong> pipeline collecting three live data streams — arrival/departure predictions (~2,200/run), vehicle positions (~114/run), and service alerts — with automatic retries and exponential backoff on the MBTA V3 API.</li>
+        <li>Orchestrated the pipeline as an <strong>Airflow 3.2.2</strong> DAG (TaskFlow API) deployed on <strong>Astronomer</strong>, running every 2 minutes across five sequential tasks — schema init, extract, transform, bulk load with <code>ON CONFLICT DO NOTHING</code>, and rolling 30-day cleanup — with an audit table logging every run. <strong>16M+ predictions ingested to date.</strong></li>
+        <li>Deployed cloud infrastructure on <strong>AWS</strong> — PostgreSQL 15 on RDS and a t3.micro EC2 instance (us-east-2) — with a normalized schema indexed on route and timestamp.</li>
+        <li>Built an interactive <strong>Streamlit + Plotly</strong> dashboard with a live vehicle map (decoded route polylines, official MBTA route colors), KPI cards (on-time rate, active vehicles, alerts), route/direction/stop/time filters, stop drill-down for the next 5 arrivals, and 120-second auto-refresh.</li>
+        <li>Enforced quality with <strong>65 unit tests</strong> across API client, transformer, and DB loader, gated by a <strong>GitHub Actions</strong> CI pipeline with a 70% coverage threshold on every push.</li>
+      </ul>
+
+      <div class="page-actions">
+        <a class="github-btn" href="https://github.com/AnjanaDevan27/Boston-mbta-realtime-dashboard" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> GitHub Repo
+        </a>
+        <a class="github-btn alt" href="https://boston-mbta-realtime-dashboard-z2hhv5gwxdiqqsyhxi6rtt.streamlit.app" target="_blank" rel="noopener">
+          <i class="fas fa-play"></i> Live Dashboard
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner"><p>© 2026 Anjana Deivasigamani</p></div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

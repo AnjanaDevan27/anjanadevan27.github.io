@@ -1,43 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>The Beauty of Safety</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-<!-- Styles -->
-<link rel="stylesheet" href="../style.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <title>The Beauty of Safety | Anjana Deivasigamani</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
-<body>
-<header>
-<nav>
-<ul>
-<li><a href="../index.html"><i class="fas fa-arrow-left"></i> Back to Portfolio</a></li>
-</ul>
-</nav>
-<section class="hero">
-<h2>The Beauty of Safety</h2>
-</section>
-</header>
-<main class="section" data-aos="fade-up">
-<p>
-<strong>The Beauty of Safety</strong> is a machine learning project that classifies cosmetic chemicals by toxicity level using publicly available ingredient datasets — helping consumers and researchers understand what's really inside their beauty products.
-</p>
-<p>
-The pipeline was built with <strong>Pandas</strong> for data cleaning and feature engineering, <strong>scikit-learn</strong> for training and comparing classification models including Random Forest, SVM, and LightGBM, and <strong>Matplotlib</strong> for visualizing toxicity distributions across product categories. Class imbalance was addressed using SMOTE oversampling and cost-sensitive learning.
-</p>
-<a class="github-btn" href="https://github.com/AnjanaDevan27/cosmetic-chemicals-analysis.git" target="_blank">
-  <i class="fab fa-github"></i> GitHub Repo
-</a>
-</main>
-<footer>
-<p>© 2025 Anjana Deivasigamani</p>
-</footer>
-<!-- Scripts -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
+<body class="subpage">
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="topbar" id="topbar">
+    <a href="../index.html" class="brand">Anjana<span>.</span></a>
+    <nav class="topnav" id="topnav">
+      <ul>
+        <li><a href="../index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a></li>
+      </ul>
+    </nav>
+    <div class="topbar-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero" data-aos="fade-up">
+      <h1>The Beauty of Safety</h1>
+      <div class="tag-container page-tags">
+        <span class="tag">R</span>
+        <span class="tag">tidyverse</span>
+        <span class="tag">dplyr</span>
+        <span class="tag">ggplot2</span>
+        <span class="tag">Random Forest</span>
+        <span class="tag">LightGBM</span>
+      </div>
+    </section>
+
+    <div class="page-body" data-aos="fade-up">
+      <p class="subtitle">A comprehensive analysis of chemicals in cosmetic products.</p>
+      <p>
+        As public concern grows around the safety of ingredients in cosmetics, <strong>The Beauty of Safety</strong>
+        investigates the presence, frequency, and health implications of hazardous chemicals. Using a
+        government-sourced dataset, I analyze trends in toxic-ingredient usage and model the toxicity of
+        cosmetic products to support safer consumer choices.
+      </p>
+
+      <h4>Dataset</h4>
+      <ul>
+        <li><strong>Source:</strong> Data.gov — Chemicals in Cosmetics, from the California Safe Cosmetics Program (CA Dept. of Public Health).</li>
+        <li><strong>110K+ product records</strong> with chemical names &amp; CAS numbers, product categories, manufacturers, reported chemical counts, reporting/discontinuation dates, and toxicity concerns (cancer, birth-defect, and reproductive risks).</li>
+      </ul>
+
+      <h4>What I built</h4>
+      <ul>
+        <li><strong>Data cleaning</strong> — removed duplicates and high-missingness columns, dropped irrelevant identifiers, standardized date fields and column structure (<strong>tidyverse</strong> / <strong>dplyr</strong>).</li>
+        <li><strong>Feature engineering</strong> — computed date differences between reporting events and derived toxicity scores from usage frequency and chemical-count-per-product; encoded categoricals for modeling.</li>
+        <li><strong>Visualization</strong> — plotted the top-20 most-reported chemicals (e.g. Titanium Dioxide, Silica), annual usage trends, and toxicity-score distributions across years and categories with <strong>ggplot2</strong>.</li>
+        <li><strong>Modeling</strong> — a <strong>Random Forest</strong> classifier for low/medium/high toxicity and a <strong>LightGBM</strong> regressor to estimate harmful-chemical counts per product.</li>
+      </ul>
+
+      <h4>Results</h4>
+      <ul>
+        <li><strong>97% accuracy</strong> classifying product toxicity (low / medium / high) with Random Forest.</li>
+        <li><strong>80.2% accuracy</strong> predicting the number of harmful chemicals per product with LightGBM regression.</li>
+        <li><strong>Titanium Dioxide</strong> was the most frequently reported chemical (known cancer links); <strong>Cocamide DEA</strong> usage dropped sharply after post-2016 regulation.</li>
+      </ul>
+
+      <div class="page-actions">
+        <a class="github-btn" href="https://github.com/AnjanaDevan27/cosmetic-chemicals-analysis.git" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> GitHub Repo
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner"><p>© 2026 Anjana Deivasigamani</p></div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../script.js"></script>
 </body>
 </html>

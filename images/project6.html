@@ -1,0 +1,32 @@
+<style>html.dark,html.dark body{background:#241016}html.dark body>div{background:#241016!important;border-color:#3a1c23!important}</style>
+
+<style>
+  .p6{width:100%;aspect-ratio:1;background:#fff5f7;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-radius:12px;border:1px solid #f0c8d4}
+  .cap{position:absolute;top:13%;left:50%;transform:translateX(-50%);width:48px;height:48px;border-radius:50%;background:#d4849a;display:flex;align-items:center;justify-content:center;animation:pulse6 3s ease-in-out infinite}
+  .cap svg{width:26px;height:26px;fill:#fff}
+  .qa{position:absolute;border-radius:16px;padding:8px 13px;font-family:sans-serif;font-size:12px;font-weight:500;opacity:0;animation:pop6 4.5s ease-in-out infinite;max-width:46%}
+  .q1{background:#f4c0d1;color:#72243e;left:12%;top:40%;animation-delay:0s}
+  .a1{background:#d4849a;color:#fff;right:10%;top:54%;animation-delay:1.4s}
+  .cite{position:absolute;left:12%;top:57%;display:flex;align-items:center;gap:4px;font-family:sans-serif;font-size:9px;font-weight:600;color:#b5667a;opacity:0;animation:pop6 4.5s ease-in-out infinite;animation-delay:2.2s}
+  .cite svg{width:10px;height:10px;fill:#b5667a}
+  .quiz{position:absolute;bottom:10%;left:50%;transform:translateX(-50%);background:#fff;border:1.5px solid #f4c0d1;border-radius:10px;padding:7px 10px;display:flex;gap:6px;font-family:sans-serif}
+  .opt{width:26px;height:8px;border-radius:4px;background:#fce8ee}
+  .opt.ok{background:#d4849a;animation:fill6 3s ease-in-out infinite}
+  @keyframes pop6{0%,100%{opacity:0;transform:translateY(6px)}18%,72%{opacity:1;transform:translateY(0)}}
+  @keyframes pulse6{0%,100%{box-shadow:0 0 0 0 rgba(212,132,154,.4)}50%{box-shadow:0 0 0 11px rgba(212,132,154,0)}}
+  @keyframes fill6{0%,100%{opacity:.4}45%,75%{opacity:1}}
+</style>
+<div class="p6">
+  <div class="cap">
+    <svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+  </div>
+  <div class="qa q1">What is normalization?</div>
+  <div class="qa a1">It removes data redundancy…</div>
+  <div class="cite">
+    <svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5z"/></svg>
+    lecture_04.pdf · p.7
+  </div>
+  <div class="quiz">
+    <div class="opt"></div><div class="opt ok"></div><div class="opt"></div><div class="opt"></div>
+  </div>
+</div>

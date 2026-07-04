@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Teaching Assistant | Anjana Deivasigamani</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+<body class="subpage">
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="topbar" id="topbar">
+    <a href="../index.html" class="brand">Anjana<span>.</span></a>
+    <nav class="topnav" id="topnav">
+      <ul>
+        <li><a href="../index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a></li>
+      </ul>
+    </nav>
+    <div class="topbar-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero" data-aos="fade-up">
+      <h1>AI Teaching Assistant</h1>
+      <div class="tag-container page-tags">
+        <span class="tag">RAG</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">React</span>
+        <span class="tag">pgvector</span>
+        <span class="tag">LLaMA (Groq)</span>
+        <span class="tag">OpenAI Embeddings</span>
+        <span class="tag">scikit-learn</span>
+        <span class="tag">GCP Cloud Run</span>
+        <span class="tag">PostgreSQL</span>
+      </div>
+    </section>
+
+    <div class="page-body" data-aos="fade-up">
+      <p>
+        <strong>AI Teaching Assistant</strong> is an AI-powered platform for university database-systems courses that helps
+        faculty run learning analytics, generate content, and give students personalized support — all through a
+        <strong>React</strong> dashboard backed by a <strong>FastAPI</strong> service on <strong>GCP</strong>.
+        Built as my CS 5500 Data Science Capstone at Northeastern.
+      </p>
+
+      <h4>What I built</h4>
+      <ul>
+        <li><strong>RAG-based Q&amp;A:</strong> answers course questions grounded in uploaded lecture PDFs with source citations — documents are auto-chunked and embedded (<strong>OpenAI ada-002</strong>) into <strong>PostgreSQL + pgvector</strong> on upload, with generation via <strong>LLaMA 3.1</strong> (Groq).</li>
+        <li><strong>At-risk student detection:</strong> a <strong>scikit-learn</strong> model flags struggling students from grades, attendance, and quiz performance, surfaced in a learning-analytics dashboard alongside grade distributions and completion trends.</li>
+        <li><strong>Content generation:</strong> AI quiz generation (multiple question types with distractor explanations), 16-week course planning, auto-generated presentation slides (python-pptx / reportlab), and an AI-assisted rubric builder.</li>
+        <li><strong>Student hub:</strong> a separate interface where students view grades, take quizzes, and participate in the RAG-powered Q&amp;A.</li>
+        <li>Deployed on <strong>GCP</strong> — Cloud Run, Cloud Storage, and Cloud Functions (PDF ingestion on upload) — with a React 18 / Vite / Tailwind frontend served via nginx over the FastAPI backend.</li>
+      </ul>
+
+      <div class="page-actions">
+        <a class="github-btn" href="https://github.com/DS5500-data-science-capstone/ai-teaching-assistant" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> GitHub Repo
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner"><p>© 2026 Anjana Deivasigamani</p></div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>
