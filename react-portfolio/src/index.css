@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: #fdf6f9;
+  color: #2d1f26;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+a {
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #e0c8d0;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c2748a;
+}
+
+/* Responsive collapse — !important beats the component inline grid styles */
+@media (max-width: 860px) {
+  .hero-grid,
+  .grid-collapse {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .portrait-col {
+    display: none !important;
+  }
+  .section-inner {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+  .hero-inner {
+    padding: 6rem 1.25rem 4rem !important;
+  }
+  .nav-links {
+    display: none !important;
+  }
+  .hero-stats {
+    flex-wrap: wrap !important;
+  }
+}
