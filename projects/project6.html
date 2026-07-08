@@ -5,29 +5,29 @@
   <title>AI Teaching Assistant | Anjana Deivasigamani</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="project.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
-<body class="subpage">
+<body>
 
+  <canvas id="mesh"></canvas>
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <header class="topbar" id="topbar">
-    <a href="../index.html" class="brand">Anjana<span>.</span></a>
-    <nav class="topnav" id="topnav">
+  <header class="topbar">
+    <a href="/portfolio/" class="brand">Anjana<span>.</span></a>
+    <nav class="topnav">
       <ul>
-        <li><a href="../index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a></li>
+        <li><a href="/portfolio/#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a></li>
       </ul>
     </nav>
-    <div class="topbar-actions">
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-    </div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
   </header>
 
   <main>
-    <section class="page-hero" data-aos="fade-up">
+    <section class="page-hero">
       <h1>AI Teaching Assistant</h1>
       <div class="tag-container page-tags">
         <span class="tag">RAG</span>
@@ -42,7 +42,7 @@
       </div>
     </section>
 
-    <div class="page-body" data-aos="fade-up">
+    <div class="page-body">
       <p>
         <strong>AI Teaching Assistant</strong> is an AI-powered platform for university database-systems courses that helps
         faculty run learning analytics, generate content, and give students personalized support — all through a
@@ -67,11 +67,8 @@
     </div>
   </main>
 
-  <footer>
-    <div class="footer-inner"><p>© 2026 Anjana Deivasigamani</p></div>
-  </footer>
+  <footer><p>© 2026 Anjana Deivasigamani</p></footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="../script.js"></script>
+  <script src="project.js"></script>
 </body>
 </html>

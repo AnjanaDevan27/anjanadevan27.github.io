@@ -3,7 +3,7 @@
  * Cursor-tracked radial glow + scale + translateY on hover.
  * Adapts to dark/light mode via the `dark` prop.
  */
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export interface SpotlightZoomCardProps {
   label?: string;
@@ -28,8 +28,6 @@ export default function SpotlightZoomCard({
   dark = false,
   className = "",
 }: SpotlightZoomCardProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [pos, setPos] = useState({ x: 50, y: 50 });
   const [hovered, setHovered] = useState(false);
 
   const rose = dark ? "#e08fa6" : "#c2748a";
@@ -40,21 +38,9 @@ export default function SpotlightZoomCard({
   const glowColor = dark ? "rgba(194,116,138,0.32)" : "rgba(194,116,138,0.22)";
   const tagBg = dark ? "rgba(194,116,138,0.14)" : "rgba(194,116,138,0.09)";
 
-  const handleMove = (e: React.MouseEvent) => {
-    const el = ref.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    setPos({
-      x: ((e.clientX - r.left) / r.width) * 100,
-      y: ((e.clientY - r.top) / r.height) * 100,
-    });
-  };
-
   return (
     <div
-      ref={ref}
       className={className}
-      onMouseMove={handleMove}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
@@ -75,18 +61,6 @@ export default function SpotlightZoomCard({
         gap: "0.6rem",
       }}
     >
-      {/* Spotlight radial glow */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          borderRadius: "1.25rem",
-          background: hovered ? `radial-gradient(circle 200px at ${pos.x}% ${pos.y}%, ${glowColor}, transparent 70%)` : "transparent",
-          transition: "background 0.1s",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
       {/* Rose accent top-edge line */}
       <div
         style={{
