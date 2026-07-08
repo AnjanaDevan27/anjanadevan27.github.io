@@ -5,6 +5,9 @@
  * Scroll: Stagger Fade-Up on all section blocks
  * Mode: Dark / Light toggle
  *
+ * All copy is the original content from the static index.html — UI only was
+ * changed. Do not paraphrase this content.
+ *
  * Palette: rose #c2748a | lavender #b497cf | bg-light #fdf6f9 | bg-dark #1a0f14
  * Fonts: Playfair Display (headings) · DM Sans (body) · JetBrains Mono (tags/labels)
  */
@@ -14,10 +17,11 @@ import SpotlightZoomCard from "../components/SpotlightZoomCard";
 import { Github, Linkedin, FileText, Mail, Sun, Moon } from "lucide-react";
 
 // ── Constants ───────────────────────────────────────────────────────────────
-const RESUME_URL = "https://anjanadevan27.github.io/resume/Anjana_Deivasigamani_Resume_main.pdf";
-const PROFILE_URL = "https://anjanadevan27.github.io/images/profile.jpg";
-const GITHUB_URL = "https://github.com/anjanadevan27";
-const LINKEDIN_URL = "https://linkedin.com/in/anjana-deivasigamani";
+const SITE = "https://anjanadevan27.github.io";
+const RESUME_URL = `${SITE}/resume/Anjana_Deivasigamani_Resume_main.pdf`;
+const PROFILE_URL = `${SITE}/images/profile.jpg`;
+const GITHUB_URL = "https://github.com/AnjanaDevan27";
+const LINKEDIN_URL = "https://www.linkedin.com/in/anjana-deivasigamani";
 const EMAIL = "anjanadevan27@gmail.com";
 
 // ── Palette helper ────────────────────────────────────────────────────────────
@@ -46,61 +50,112 @@ const P = (dark: boolean) =>
         glow: "rgba(194,116,138,0.22)",
       };
 
-// ── Data ──────────────────────────────────────────────────────────────────────
+// ── Data (verbatim from index.html) ────────────────────────────────────────────
 const PROJECTS = [
-  { label: "LLM / NLP", title: "SellerCentral Chatbot", description: "Production RAG pipeline (LangChain + LLaMA, FAISS) for Amazon sellers — 95% accuracy at sub-2s latency on GCP Cloud Run.", tags: ["RAG", "LangChain", "FAISS", "LLaMA", "GCP"], link: GITHUB_URL },
-  { label: "ML", title: "The Beauty of Safety", description: "Toxicity analysis of 110K+ cosmetic records in R — 97% accuracy classifying product toxicity with Random Forest.", tags: ["R", "ggplot2", "Random Forest", "LightGBM"], link: GITHUB_URL },
-  { label: "Data / SQL", title: "DineTrack", description: "Cloud SQL restaurant analytics pipeline — tracked revenue growth from $303K to $1.26M across 2018–2024.", tags: ["MySQL", "GCP Cloud SQL", "R", "RMarkdown"], link: GITHUB_URL },
-  { label: "ML", title: "Customer Churn Prediction", description: "Streamlit app predicting telecom churn — Logistic Regression chosen from 5 models via GridSearchCV.", tags: ["Streamlit", "sklearn", "Joblib", "Python"], link: GITHUB_URL },
-  { label: "Cloud", title: "Boston MBTA Dashboard", description: "ETL pipeline pulling live MBTA transit data every 2 min via Airflow on AWS — 16M+ predictions, live Streamlit dashboard.", tags: ["Airflow", "PostgreSQL", "AWS", "Streamlit"], link: GITHUB_URL },
-  { label: "LLM / NLP", title: "AI Teaching Assistant", description: "RAG Q&A over lecture PDFs, at-risk student detection, AI quiz/slide generation — deployed on GCP Cloud Run.", tags: ["RAG", "FastAPI", "React", "pgvector", "GCP"], link: GITHUB_URL },
+  {
+    categories: ["LLM / NLP", "Cloud"],
+    label: "LLM / NLP",
+    title: "SellerCentral Chatbot",
+    description: "Production-grade RAG pipeline (LangChain + LLaMA, FAISS retrieval) for Amazon sellers — 95% response accuracy at sub-2s latency, deployed on GCP Cloud Run.",
+    tags: ["RAG", "LangChain", "FAISS", "LLaMA", "GCP"],
+    link: `${SITE}/projects/project1.html`,
+  },
+  {
+    categories: ["ML", "Data / SQL"],
+    label: "ML",
+    title: "The Beauty of Safety",
+    description: "Toxicity analysis of 110K+ cosmetic-product records in R — 97% accuracy classifying product toxicity (Random Forest).",
+    tags: ["R", "ggplot2", "Random Forest", "LightGBM"],
+    link: `${SITE}/projects/project2.html`,
+  },
+  {
+    categories: ["Data / SQL", "Cloud"],
+    label: "Data / SQL",
+    title: "DineTrack",
+    description: "Cloud SQL restaurant analytics pipeline in R — tracked revenue growth from $303K to $1.26M across 2018–2024.",
+    tags: ["MySQL", "GCP Cloud SQL", "R", "RMarkdown"],
+    link: `${SITE}/projects/project3.html`,
+  },
+  {
+    categories: ["ML"],
+    label: "ML",
+    title: "Customer Churn Prediction",
+    description: "Streamlit app predicting telecom churn — Logistic Regression chosen from 5 models via GridSearchCV.",
+    tags: ["Streamlit", "sklearn", "Joblib", "Python"],
+    link: `${SITE}/projects/project4.html`,
+  },
+  {
+    categories: ["Data / SQL", "Cloud"],
+    label: "Cloud",
+    title: "Boston MBTA Real-Time Dashboard",
+    description: "Production ETL pipeline pulling live MBTA transit data every 2 minutes via Airflow on AWS — 16M+ predictions ingested, visualized in a live Streamlit dashboard.",
+    tags: ["Airflow", "PostgreSQL", "AWS", "Streamlit", "Python"],
+    link: `${SITE}/projects/project5.html`,
+  },
+  {
+    categories: ["LLM / NLP", "Cloud"],
+    label: "LLM / NLP",
+    title: "AI Teaching Assistant",
+    description: "AI platform for university courses — RAG Q&A over lecture PDFs, at-risk student detection, and AI quiz/slide generation, deployed on GCP Cloud Run.",
+    tags: ["RAG", "FastAPI", "React", "pgvector", "GCP"],
+    link: `${SITE}/projects/project6.html`,
+  },
+];
+
+const STRENGTHS = [
+  { n: "01", t: "End-to-End Ownership", d: 'I take problems from raw data to deployed product — EDA, modeling, and shipping with FastAPI & Streamlit on GCP. Not just notebooks that stop at "it works locally."' },
+  { n: "02", t: "Production-Minded ML", d: "I build for reliability: automated data validation, test suites, and CI/CD over cloud pipelines (Airflow, BigQuery, Cloud Run) — so models hold up beyond the demo." },
+  { n: "03", t: "Business Impact", d: "I tie analysis to outcomes — co-purchase insights that shaped promotional strategy, revenue trends that informed decisions, and dashboards teams actually use." },
+  { n: "04", t: "Clarity & Curiosity", d: "I translate complex results for non-technical audiences and ask the question behind the question — because the right framing usually matters more than the fanciest model." },
 ];
 
 const SKILLS: Record<string, string[]> = {
   Languages: ["Python", "R", "SQL", "Bash"],
-  "AI & LLMs": ["RAG", "LangChain", "FAISS", "LLaMA", "Hugging Face", "OpenAI API", "pgvector", "Embeddings"],
+  "AI & LLMs": ["RAG", "LangChain", "FAISS", "LLaMA", "Hugging Face", "OpenAI API", "pgvector", "Embeddings", "Prompt Engineering"],
   "ML Libraries": ["scikit-learn", "PyTorch", "TensorFlow", "XGBoost", "spaCy", "NLTK"],
   "Data Engineering": ["Apache Airflow", "FastAPI", "Docker", "Pandas", "BeautifulSoup"],
-  "Data Validation": ["Great Expectations", "Anomaly Detection", "Data Profiling"],
+  "Data Validation & QA": ["Great Expectations", "Anomaly Detection", "Data Profiling", "JSON / Metadata"],
   "Cloud & Platforms": ["GCP", "BigQuery", "Cloud Run", "Cloud SQL", "GCS", "GitHub Actions"],
   Databases: ["MySQL", "PostgreSQL"],
-  Dashboards: ["Tableau", "Streamlit", "Matplotlib", "Seaborn", "ggplot2"],
+  "Dashboards & Reporting": ["Tableau", "Streamlit", "Matplotlib", "Seaborn", "ggplot2"],
 };
 
 const EXPERIENCE = [
   {
     period: "Jul 2025 – Dec 2025",
     role: "Data Scientist Intern",
-    company: "Beauty Intelligence LLC",
-    location: "Alabama, US",
+    company: "Beauty Intelligence LLC · Alabama, US",
     bullets: [
-      "Re-engineered bi-weekly Nielsen POS validation with Python + Apache Airflow — eliminated ~4 hrs of manual processing per cycle across 2M+ transactions.",
-      "Built validation logic to detect malformed UPCs, schema inconsistencies, and anomalous product descriptors before BigQuery ingestion.",
-      "Detected SKU-level anomalies across 40GB+ data for 300+ hair care CPG brands; applied FP-Growth market basket analysis to surface co-purchase patterns.",
-      "Built a BigQuery ingestion pipeline surfacing cross-brand affinity signals for 10+ brands, replacing manual ad hoc reporting with self-serve Streamlit dashboards.",
+      "Eliminated ~4 hours of manual processing per cycle across 2M+ transactions per export by re-engineering bi-weekly Nielsen syndicated POS validation — migrating from manual Power Query workflows to automated Python scripts orchestrated via Apache Airflow.",
+      "Built validation logic to detect and resolve malformed UPCs, schema inconsistencies, and anomalous product descriptors, ensuring data completeness before downstream BigQuery ingestion.",
+      "Detected SKU-level anomalies across 40GB+ of data spanning 300+ hair care CPG brands; applied FP-Growth market basket analysis to surface co-purchase patterns that informed marketing and promotional strategy.",
+      "Built a BigQuery ingestion pipeline surfacing cross-brand affinity signals for 10+ brands, replacing manual ad hoc reporting with self-serve Streamlit co-purchase dashboards.",
     ],
   },
   {
     period: "Jan 2023 – Jul 2023",
     role: "Software Developer Intern",
-    company: "Mr. Cooper (Xome Pvt. Ltd.)",
-    location: "Chennai, India",
+    company: "Mr. Cooper (Xome Pvt. Ltd.) · Chennai, India",
     bullets: [
-      "Designed a relational data model in MS SQL Server for Xome's auction platform — 875,000+ registered bidders.",
-      "Authored complex SQL queries and stored procedures for auction lifecycle operations on a $16B+ gross sales platform.",
-      "Built a full-stack auction management prototype in C# and ASP.NET Core MVC to validate end-to-end data flows.",
+      "Designed a relational data model in MS SQL Server for Xome's high-volume auction platform supporting 875,000+ registered bidders; defined indexing strategies and integrity constraints that improved lookup performance and prevented duplicate bids and race conditions during concurrent transactions.",
+      "Authored complex SQL queries and stored procedures for auction lifecycle operations — bid tracking and transaction reconciliation supporting a platform with $16B+ in cumulative gross sales.",
+      "Performed root-cause analysis on reconciliation mismatches, resolving data discrepancies to ensure transactional accuracy.",
+      "Built a full-stack auction management prototype in C# and ASP.NET Core MVC to validate end-to-end data flows, surfacing schema design issues prior to production deployment.",
     ],
   },
 ];
 
 const EDUCATION = [
-  { year: "May 2026", degree: "Master of Science — Data Science", school: "Northeastern University", location: "Boston, MA", gpa: "3.67 / 4.0" },
-  { year: "May 2023", degree: "B.E. — Computer Science & Engineering", school: "Anna University", location: "Chennai, India", gpa: "8.49 / 10.0" },
+  { year: "May 2026", degree: "Master of Science — Data Science", meta: "Northeastern University · Boston, MA", gpa: "3.67 / 4.0" },
+  { year: "May 2023", degree: "Bachelor of Engineering — Computer Science & Engineering", meta: "Anna University · Chennai, India", gpa: "8.49 / 10.0" },
 ];
 
 const PUBLICATIONS = [
-  { title: "Customer Emotion Analysis on Food Review Images Using Deep Learning: A Review", link: "#" },
-  { title: "IEEE Smart Dustbin Using Node MCU", link: "#" },
+  {
+    title: "Customer Emotion Analysis on Food Review Images Using Deep Learning: A Review",
+    link: "https://www.taylorfrancis.com/chapters/edit/10.1201/9781003428473-44/customer-emotion-analysis-food-review-images-using-deep-learning-review-jagadeesh-akhilesh-ravikumar-anjana-deivasigamani-dharshini",
+  },
+  { title: "IEEE Smart Dustbin Using Node MCU", link: "https://ieeexplore.ieee.org/document/10128567" },
 ];
 
 // ── Stagger fade-up hook ──────────────────────────────────────────────────────
@@ -123,6 +178,29 @@ function useFadeUp(threshold = 0.1) {
     return () => obs.disconnect();
   }, [threshold]);
   return { ref, visible };
+}
+
+// ── Scroll-spy: which nav section is currently centered ───────────────────────
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState(ids[0]);
+  const key = ids.join(",");
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -55% 0px", threshold: 0 },
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+    return () => obs.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [key]);
+  return active;
 }
 
 // ── Animated counter ──────────────────────────────────────────────────────────
@@ -188,6 +266,7 @@ function FadeCard({ children, delay = 0 }: { children: React.ReactNode; delay?: 
     <div
       ref={ref}
       style={{
+        height: "100%",
         transition: `opacity 0.55s cubic-bezier(0.23,1,0.32,1) ${delay}ms, transform 0.55s cubic-bezier(0.23,1,0.32,1) ${delay}ms`,
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(24px)",
@@ -225,7 +304,7 @@ export default function Home() {
   const p = P(dark);
 
   const filters = ["All", "LLM / NLP", "ML", "Cloud", "Data / SQL"];
-  const filtered = activeFilter === "All" ? PROJECTS : PROJECTS.filter((proj) => proj.label === activeFilter);
+  const filtered = activeFilter === "All" ? PROJECTS : PROJECTS.filter((proj) => proj.categories.includes(activeFilter));
 
   const scrollTo = useCallback((e: React.MouseEvent, id: string) => {
     e.preventDefault();
@@ -239,6 +318,7 @@ export default function Home() {
     { label: "Skills", id: "skills" },
     { label: "Contact", id: "contact" },
   ];
+  const activeSection = useActiveSection(navLinks.map((l) => l.id));
 
   return (
     <div style={{ minHeight: "100vh", fontFamily: "'DM Sans', sans-serif", transition: "color 0.4s ease", color: p.text, background: p.bg }}>
@@ -267,44 +347,81 @@ export default function Home() {
         <a href="#hero" onClick={(e) => scrollTo(e, "hero")} style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.25rem", fontWeight: 700, color: p.text, textDecoration: "none", letterSpacing: "-0.01em" }}>
           Anjana<span style={{ color: p.rose }}>.</span>
         </a>
-        <div style={{ display: "flex", alignItems: "center", gap: "1.75rem" }}>
-          <nav className="nav-links" style={{ display: "flex", gap: "1.75rem" }}>
-            {navLinks.map((l) => (
+
+        {/* Floating pill nav with scroll-spy active chip */}
+        <nav
+          className="nav-links"
+          style={{
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            gap: "0.25rem",
+            padding: "0.3rem",
+            borderRadius: "999px",
+            background: dark ? "rgba(45,20,30,0.4)" : "rgba(255,255,255,0.45)",
+            border: `1px solid ${p.border}`,
+            backdropFilter: "blur(10px)",
+            boxShadow: `0 2px 16px ${p.glow}`,
+          }}
+        >
+          {navLinks.map((l) => {
+            const isActive = activeSection === l.id;
+            return (
               <a
                 key={l.id}
                 href={`#${l.id}`}
                 onClick={(e) => scrollTo(e, l.id)}
-                style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.72rem", letterSpacing: "0.06em", textTransform: "uppercase", color: p.textMuted, textDecoration: "none", transition: "color 0.2s" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = p.rose)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = p.textMuted)}
+                style={{
+                  position: "relative",
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: "0.7rem",
+                  letterSpacing: "0.05em",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  padding: "0.45rem 0.95rem",
+                  borderRadius: "999px",
+                  color: isActive ? "#fff" : p.textMuted,
+                  background: isActive ? p.rose : "transparent",
+                  boxShadow: isActive ? `0 2px 10px ${p.glow}` : "none",
+                  transition: "color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease",
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) e.currentTarget.style.color = p.rose;
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) e.currentTarget.style.color = p.textMuted;
+                }}
               >
                 {l.label}
               </a>
-            ))}
-          </nav>
-          <button
-            onClick={() => setDark((d) => !d)}
-            aria-label="Toggle dark mode"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.4rem",
-              background: "transparent",
-              border: `1px solid ${p.border}`,
-              borderRadius: "999px",
-              padding: "0.4rem 0.9rem",
-              cursor: "pointer",
-              color: p.text,
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: "0.66rem",
-              letterSpacing: "0.06em",
-              transition: "all 0.25s ease",
-            }}
-          >
-            {dark ? <Sun size={13} /> : <Moon size={13} />}
-            {dark ? "Light" : "Dark"}
-          </button>
-        </div>
+            );
+          })}
+        </nav>
+
+        <button
+          onClick={() => setDark((d) => !d)}
+          aria-label="Toggle dark mode"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.4rem",
+            background: dark ? "rgba(45,20,30,0.4)" : "rgba(255,255,255,0.45)",
+            border: `1px solid ${p.border}`,
+            borderRadius: "999px",
+            padding: "0.45rem 0.95rem",
+            cursor: "pointer",
+            color: p.text,
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: "0.66rem",
+            letterSpacing: "0.06em",
+            backdropFilter: "blur(10px)",
+            transition: "all 0.25s ease",
+          }}
+        >
+          {dark ? <Sun size={13} /> : <Moon size={13} />}
+          {dark ? "Light" : "Dark"}
+        </button>
       </header>
 
       {/* Content sits above the fixed mesh */}
@@ -316,7 +433,7 @@ export default function Home() {
               <div>
                 <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "rgba(194,116,138,0.1)", border: "1px solid rgba(194,116,138,0.3)", borderRadius: "999px", padding: "0.3rem 0.9rem", marginBottom: "2rem" }}>
                   <span style={{ width: 6, height: 6, borderRadius: "50%", background: p.rose, display: "inline-block", animation: "pulse 2s infinite" }} />
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.7rem", color: p.rose, letterSpacing: "0.08em" }}>Open to full-time roles · Boston, MA</span>
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.7rem", color: p.rose, letterSpacing: "0.08em" }}>Open to full-time roles</span>
                 </div>
                 <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(3.5rem, 8vw, 6.5rem)", fontWeight: 700, color: p.text, lineHeight: 1.0, marginBottom: "1.25rem", letterSpacing: "-0.02em" }}>
                   Anjana
@@ -325,9 +442,9 @@ export default function Home() {
                 </h1>
                 <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "0.75rem" }}>
                   <div style={{ height: 1, width: 40, background: p.rose }} />
-                  <p style={{ fontSize: "clamp(1rem, 2vw, 1.2rem)", color: p.textMuted, fontWeight: 400, letterSpacing: "0.02em", margin: 0 }}>Data Scientist · ML Engineer</p>
+                  <p style={{ fontSize: "clamp(1rem, 2vw, 1.2rem)", color: p.textMuted, fontWeight: 400, letterSpacing: "0.02em", margin: 0 }}>Data Scientist · Data Analyst · AI / ML Engineer</p>
                 </div>
-                <p style={{ fontSize: "0.87rem", color: p.textFaint, marginBottom: "2.5rem", fontFamily: "'JetBrains Mono', monospace", letterSpacing: "0.04em" }}>MS @ Northeastern · LLMs · Cloud Pipelines · Analytics</p>
+                <p style={{ fontSize: "0.87rem", color: p.textFaint, marginBottom: "2.5rem", fontFamily: "'JetBrains Mono', monospace", letterSpacing: "0.04em" }}>MS @ Northeastern University · LLMs · Cloud Pipelines · Analytics</p>
                 <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginBottom: "2rem" }}>
                   <a
                     href="#projects"
@@ -336,7 +453,7 @@ export default function Home() {
                     onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-2px)")}
                     onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
                   >
-                    See the work →
+                    View Projects
                   </a>
                   <a
                     href="#contact"
@@ -351,7 +468,7 @@ export default function Home() {
                       e.currentTarget.style.color = p.text;
                     }}
                   >
-                    Let's talk
+                    Get in Touch
                   </a>
                 </div>
                 <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
@@ -382,29 +499,34 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              {/* Portrait */}
-              <div className="portrait-col" style={{ position: "relative", flexShrink: 0 }}>
-                <div style={{ position: "absolute", inset: "-14px", borderRadius: "40% 60% 55% 45% / 45% 40% 60% 55%", border: `1px solid ${p.border}`, animation: "morphRing 8s ease-in-out infinite", pointerEvents: "none" }} />
-                <div style={{ width: 290, height: 350, borderRadius: "40% 60% 55% 45% / 45% 40% 60% 55%", overflow: "hidden", border: `2px solid ${p.border}`, background: "linear-gradient(135deg, rgba(194,116,138,0.1), rgba(180,151,207,0.1))", animation: "morphRing 8s ease-in-out infinite" }}>
+              {/* Portrait — static shape, animated rotating halo behind it */}
+              <div className="portrait-col" style={{ position: "relative", flexShrink: 0, width: 290, height: 350, margin: "0 auto" }}>
+                <div
+                  aria-hidden
+                  style={{
+                    position: "absolute",
+                    inset: "-28px",
+                    borderRadius: "50%",
+                    background: "conic-gradient(from 0deg, rgba(194,116,138,0.55), rgba(180,151,207,0.5), rgba(194,116,138,0), rgba(194,116,138,0.55))",
+                    filter: "blur(28px)",
+                    animation: "haloSpin 14s linear infinite",
+                    pointerEvents: "none",
+                    zIndex: 0,
+                  }}
+                />
+                <div style={{ position: "absolute", inset: "-14px", borderRadius: "62% 38% 55% 45% / 52% 48% 52% 48%", border: `1px solid ${p.border}`, pointerEvents: "none", zIndex: 1 }} />
+                <div style={{ position: "relative", zIndex: 2, width: 290, height: 350, borderRadius: "62% 38% 55% 45% / 52% 48% 52% 48%", overflow: "hidden", border: `2px solid ${p.border}`, background: "linear-gradient(135deg, rgba(194,116,138,0.1), rgba(180,151,207,0.1))" }}>
                   <img src={PROFILE_URL} alt="Anjana Deivasigamani" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />
-                </div>
-                <div style={{ position: "absolute", bottom: -14, left: -22, background: dark ? "rgba(34,19,25,0.95)" : "rgba(253,246,249,0.95)", backdropFilter: "blur(12px)", border: `1px solid ${p.border}`, borderRadius: "1rem", padding: "0.7rem 1.2rem", boxShadow: `0 8px 24px ${p.glow}` }}>
-                  <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: p.rose, lineHeight: 1 }}>6</div>
-                  <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.62rem", color: p.textMuted, marginTop: 2 }}>Projects shipped</div>
-                </div>
-                <div style={{ position: "absolute", top: -14, right: -22, background: dark ? "rgba(34,19,25,0.95)" : "rgba(253,246,249,0.95)", backdropFilter: "blur(12px)", border: `1px solid ${p.border}`, borderRadius: "1rem", padding: "0.7rem 1.2rem", boxShadow: `0 8px 24px ${p.glow}` }}>
-                  <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: p.lavender, lineHeight: 1 }}>3.67</div>
-                  <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.62rem", color: p.textMuted, marginTop: 2 }}>MS GPA</div>
                 </div>
               </div>
             </div>
             {/* Stats */}
             <div className="hero-stats" style={{ display: "flex", marginTop: "5rem", borderTop: `1px solid ${p.border}`, paddingTop: "2rem", maxWidth: 700 }}>
               {[
-                { v: "6", l: "Projects" },
+                { v: "6", l: "Featured Projects" },
                 { v: "2", l: "Publications" },
                 { v: "2", l: "Internships" },
-                { v: "3+", l: "Years Coding" },
+                { v: "1+", l: "Year of Experience" },
               ].map((s, i) => (
                 <div key={i} style={{ flex: 1, textAlign: i === 0 ? "left" : "center", paddingRight: "1rem", borderRight: i < 3 ? `1px solid ${p.border}` : "none", paddingLeft: i > 0 ? "1rem" : 0 }}>
                   <Counter value={s.v} dark={dark} />
@@ -415,32 +537,32 @@ export default function Home() {
           </div>
           <style>{`
             @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-            @keyframes morphRing{0%,100%{border-radius:40% 60% 55% 45%/45% 40% 60% 55%}33%{border-radius:55% 45% 40% 60%/60% 55% 45% 40%}66%{border-radius:45% 55% 60% 40%/40% 60% 55% 45%}}
+            @keyframes haloSpin{to{transform:rotate(360deg)}}
           `}</style>
         </section>
 
-        {/* ── ABOUT ── */}
+        {/* ── ABOUT + WHAT I BRING ── */}
         <Section id="about" dark={dark}>
           <div className="section-inner" style={{ position: "relative", zIndex: 1, maxWidth: 1280, margin: "0 auto", padding: "0 3rem" }}>
-            <div className="grid-collapse" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "4rem", alignItems: "start", marginBottom: "3.5rem" }}>
+            <div className="grid-collapse" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "4rem", alignItems: "start", marginBottom: "4rem" }}>
               <div>
                 <SectionLabel n="01" text="About" dark={dark} />
                 <SectionHeading line1="Data science" line2="that ships." dark={dark} />
               </div>
               <div style={{ paddingTop: "1rem" }}>
-                <p style={{ color: p.textMuted, lineHeight: 1.85, fontSize: "1.05rem", marginBottom: "1.25rem", fontWeight: 300 }}>
-                  I build RAG-powered chatbots, toxicity classifiers, churn prediction models, and cloud data pipelines — across GCP, BigQuery, MySQL, and more. Actively seeking full-time roles as a <strong style={{ color: p.rose, fontWeight: 600 }}>Data Scientist</strong>, <strong style={{ color: p.rose, fontWeight: 600 }}>Data Analyst</strong>, or <strong style={{ color: p.rose, fontWeight: 600 }}>AI/ML Engineer</strong>.
+                <p style={{ color: p.textMuted, lineHeight: 1.85, fontSize: "1.05rem", fontWeight: 300 }}>
+                  Give me a complex dataset and a problem worth solving — that's where I do my best work. I've built RAG-powered chatbots, toxicity classifiers, churn prediction models, and cloud data pipelines — across GCP, BigQuery, MySQL, and more. I'm actively seeking full-time roles as a <em style={{ color: p.rose, fontStyle: "normal", fontWeight: 600 }}>Data Scientist</em>, <em style={{ color: p.rose, fontStyle: "normal", fontWeight: 600 }}>Data Analyst</em>, or <em style={{ color: p.rose, fontStyle: "normal", fontWeight: 600 }}>AI/ML Engineer</em>. I believe the best insights come from asking the right question — and I'm never short of those.
                 </p>
-                <p style={{ color: p.textFaint, lineHeight: 1.85, fontSize: "0.95rem", fontWeight: 300 }}>The best insights come from asking the right question — and I'm never short of those.</p>
               </div>
             </div>
+
+            {/* What I Bring to the Table */}
+            <div style={{ marginBottom: "2.5rem" }}>
+              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 700, color: p.text, margin: 0 }}>What I Bring to the Table</h3>
+              <p style={{ color: p.textMuted, marginTop: "0.5rem", fontSize: "0.95rem" }}>More than a tech stack — here's how I work.</p>
+            </div>
             <div className="grid-collapse" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "1rem" }}>
-              {[
-                { n: "01", t: "End-to-End Ownership", d: "EDA → modeling → deployed product with FastAPI & Streamlit on GCP." },
-                { n: "02", t: "Production-Minded ML", d: "Automated validation, test suites, and CI/CD over cloud pipelines." },
-                { n: "03", t: "Business Impact", d: "Co-purchase insights, revenue trends, dashboards teams actually use." },
-                { n: "04", t: "Clarity & Curiosity", d: "Complex results, plain language. I ask the question behind the question." },
-              ].map((item, i) => (
+              {STRENGTHS.map((item, i) => (
                 <FadeCard key={i} delay={i * 90}>
                   <SpotlightZoomCard label={item.n} title={item.t} description={item.d} dark={dark} />
                 </FadeCard>
@@ -456,6 +578,7 @@ export default function Home() {
               <div>
                 <SectionLabel n="02" text="Projects" dark={dark} />
                 <SectionHeading line1="The work" line2="that matters." dark={dark} />
+                <p style={{ color: p.textMuted, marginTop: "0.75rem", fontSize: "0.95rem" }}>Filter by what you're looking for:</p>
               </div>
               <div style={{ display: "flex", gap: "0.45rem", flexWrap: "wrap", alignSelf: "flex-end" }}>
                 {filters.map((f) => (
@@ -470,11 +593,15 @@ export default function Home() {
               </div>
             </div>
             <div className="grid-collapse" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1.25rem" }}>
-              {filtered.map((proj, i) => (
-                <FadeCard key={proj.title} delay={i * 90}>
-                  <SpotlightZoomCard {...proj} linkLabel="View Project" dark={dark} />
-                </FadeCard>
-              ))}
+              {filtered.map((proj, i) => {
+                const { categories, ...card } = proj;
+                void categories;
+                return (
+                  <FadeCard key={proj.title} delay={i * 90}>
+                    <SpotlightZoomCard {...card} linkLabel="View Project" dark={dark} />
+                  </FadeCard>
+                );
+              })}
             </div>
           </div>
         </Section>
@@ -486,12 +613,11 @@ export default function Home() {
               <div style={{ position: "sticky", top: "6rem" }}>
                 <SectionLabel n="03" text="Experience" dark={dark} />
                 <SectionHeading line1="Where I've" line2="shipped." dark={dark} />
-                <p style={{ color: p.textMuted, marginTop: "1rem", fontSize: "0.88rem", lineHeight: 1.7 }}>Two internships. Real pipelines. Production impact.</p>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
                 {EXPERIENCE.map((exp, i) => (
                   <FadeCard key={i} delay={i * 150}>
-                    <SpotlightZoomCard label={exp.period} title={`${exp.role} · ${exp.company}`} description={exp.bullets.join(" ")} tags={[exp.location]} dark={dark} />
+                    <SpotlightZoomCard label={exp.period} title={`${exp.role} · ${exp.company}`} bullets={exp.bullets} dark={dark} />
                   </FadeCard>
                 ))}
               </div>
@@ -507,7 +633,7 @@ export default function Home() {
             <div className="grid-collapse" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem", marginTop: "3rem" }}>
               {EDUCATION.map((edu, i) => (
                 <FadeCard key={i} delay={i * 120}>
-                  <SpotlightZoomCard label={edu.year} title={edu.degree} description={`${edu.school} · ${edu.location}`} tags={[`GPA ${edu.gpa}`]} dark={dark} />
+                  <SpotlightZoomCard label={edu.year} title={edu.degree} description={edu.meta} tags={[`GPA ${edu.gpa}`]} dark={dark} />
                 </FadeCard>
               ))}
             </div>
@@ -518,11 +644,11 @@ export default function Home() {
         <Section id="publications" dark={dark}>
           <div className="section-inner" style={{ position: "relative", zIndex: 1, maxWidth: 1280, margin: "0 auto", padding: "0 3rem" }}>
             <SectionLabel n="05" text="Publications" dark={dark} />
-            <SectionHeading line1="Research" line2="that ships." dark={dark} />
+            <SectionHeading line1="Research" line2="worth citing." dark={dark} />
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginTop: "3rem" }}>
               {PUBLICATIONS.map((pub, i) => (
                 <FadeCard key={i} delay={i * 120}>
-                  <SpotlightZoomCard label={`0${i + 1}`} title={pub.title} description="" link={pub.link !== "#" ? pub.link : undefined} linkLabel="Read →" dark={dark} />
+                  <SpotlightZoomCard label={`0${i + 1}`} title={pub.title} link={pub.link} linkLabel="Read Publication" dark={dark} />
                 </FadeCard>
               ))}
             </div>
@@ -536,12 +662,11 @@ export default function Home() {
               <div style={{ position: "sticky", top: "6rem" }}>
                 <SectionLabel n="06" text="Skills" dark={dark} />
                 <SectionHeading line1="The full" line2="stack." dark={dark} />
-                <p style={{ color: p.textMuted, marginTop: "1rem", fontSize: "0.88rem", lineHeight: 1.7 }}>Tools I reach for when the problem gets hard.</p>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px,1fr))", gap: "1rem" }}>
                 {Object.entries(SKILLS).map(([cat, skills], i) => (
                   <FadeCard key={cat} delay={i * 70}>
-                    <SpotlightZoomCard label={cat} title="" description="" tags={skills} dark={dark} />
+                    <SpotlightZoomCard label={cat} title="" tags={skills} dark={dark} />
                   </FadeCard>
                 ))}
               </div>
@@ -556,7 +681,7 @@ export default function Home() {
               <div>
                 <SectionLabel n="07" text="Resume" dark={dark} />
                 <SectionHeading line1="The full" line2="picture." dark={dark} />
-                <p style={{ color: p.textMuted, fontSize: "1rem", lineHeight: 1.7, marginTop: "1.25rem" }}>One document. Every proof point. View or download below.</p>
+                <p style={{ color: p.textMuted, fontSize: "1rem", lineHeight: 1.7, marginTop: "1.25rem" }}>You can view or download my resume below:</p>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "flex-start" }}>
                 <a
@@ -582,7 +707,7 @@ export default function Home() {
                     e.currentTarget.style.color = p.text;
                   }}
                 >
-                  Download PDF
+                  Download Resume
                 </a>
               </div>
             </div>
@@ -597,13 +722,11 @@ export default function Home() {
             <div>
               <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.63rem", letterSpacing: "0.13em", textTransform: "uppercase", color: "rgba(224,143,166,0.7)", display: "block", marginBottom: "1rem" }}>08 — Contact</span>
               <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 6vw, 5rem)", fontWeight: 700, color: "#fdf6f9", lineHeight: 1.05, letterSpacing: "-0.02em", marginBottom: "1.5rem" }}>
-                Have a hard
+                Get in
                 <br />
-                problem?
-                <br />
-                <em style={{ color: "#e08fa6", fontStyle: "italic" }}>I'll ship it.</em>
+                <em style={{ color: "#e08fa6", fontStyle: "italic" }}>touch.</em>
               </h2>
-              <p style={{ color: "rgba(253,246,249,0.55)", fontSize: "1rem", lineHeight: 1.7, maxWidth: 480 }}>Open to full-time Data Scientist, Data Analyst, and AI/ML Engineer roles. Reach out directly — I respond within 24 hours.</p>
+              <p style={{ color: "rgba(253,246,249,0.55)", fontSize: "1rem", lineHeight: 1.7, maxWidth: 480 }}>Have a role, a question, or just want to say hi? My inbox is open.</p>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "flex-start" }}>
               <a
@@ -643,9 +766,8 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer style={{ background: dark ? "#0f080c" : "#2d1f26", borderTop: "1px solid rgba(255,255,255,0.06)", padding: "2rem 3rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
-          <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "1rem", color: "rgba(253,246,249,0.45)" }}>Anjana Deivasigamani</span>
-          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.7rem", color: "rgba(253,246,249,0.28)", letterSpacing: "0.05em" }}>© 2026</span>
+        <footer style={{ background: dark ? "#0f080c" : "#2d1f26", borderTop: "1px solid rgba(255,255,255,0.06)", padding: "2rem 3rem", display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.7rem", color: "rgba(253,246,249,0.4)", letterSpacing: "0.05em" }}>© 2026 Anjana Deivasigamani</span>
         </footer>
       </div>
     </div>

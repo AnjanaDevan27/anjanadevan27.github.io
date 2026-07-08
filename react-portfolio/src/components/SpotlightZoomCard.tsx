@@ -8,7 +8,8 @@ import { useRef, useState } from "react";
 export interface SpotlightZoomCardProps {
   label?: string;
   title: string;
-  description: string;
+  description?: string;
+  bullets?: string[];
   tags?: string[];
   link?: string;
   linkLabel?: string;
@@ -20,6 +21,7 @@ export default function SpotlightZoomCard({
   label,
   title,
   description,
+  bullets = [],
   tags = [],
   link,
   linkLabel = "View Project",
@@ -57,6 +59,7 @@ export default function SpotlightZoomCard({
       onMouseLeave={() => setHovered(false)}
       style={{
         position: "relative",
+        height: "100%",
         padding: "1.75rem",
         borderRadius: "1.25rem",
         background: bg,
@@ -130,7 +133,15 @@ export default function SpotlightZoomCard({
             {title}
           </h3>
         )}
-        {description && (
+        {bullets.length > 0 ? (
+          <ul style={{ margin: 0, paddingLeft: "1.1rem", display: "flex", flexDirection: "column", gap: "0.5rem", color: rose, flex: 1 }}>
+            {bullets.map((b, i) => (
+              <li key={i} style={{ fontSize: "0.83rem", color: textMuted, lineHeight: 1.65 }}>
+                {b}
+              </li>
+            ))}
+          </ul>
+        ) : description ? (
           <p
             style={{
               fontSize: "0.83rem",
@@ -142,7 +153,7 @@ export default function SpotlightZoomCard({
           >
             {description}
           </p>
-        )}
+        ) : null}
         {tags.length > 0 && (
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem", marginTop: "0.25rem" }}>
             {tags.map((t) => (

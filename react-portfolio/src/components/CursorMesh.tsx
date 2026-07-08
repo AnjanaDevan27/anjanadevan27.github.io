@@ -51,9 +51,9 @@ export default function CursorMesh({ dark = false, className = "", style = {} }:
       const W = canvas.offsetWidth;
       const H = canvas.offsetHeight;
 
-      // Smooth cursor lerp
-      mouse.current.x += (target.current.x - mouse.current.x) * 0.05;
-      mouse.current.y += (target.current.y - mouse.current.y) * 0.05;
+      // Smooth cursor lerp — higher factor tracks the cursor faster (less trail)
+      mouse.current.x += (target.current.x - mouse.current.x) * 0.5;
+      mouse.current.y += (target.current.y - mouse.current.y) * 0.5;
       const mx = mouse.current.x;
       const my = mouse.current.y;
 
