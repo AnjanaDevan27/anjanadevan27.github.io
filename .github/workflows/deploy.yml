@@ -1,9 +1,9 @@
 name: Deploy to GitHub Pages
 
-# Builds the React app in react-portfolio/ and publishes a single Pages
-# artifact that contains BOTH sites:
-#   - the existing static site at the root ( / )
-#   - the React app at            /portfolio/
+# Builds the React app in react-portfolio/ and publishes it as the site root ( / ),
+# replacing the old static site. The React app links to /images, /projects, and
+# /resume via absolute paths, so those folders are copied alongside it. The old
+# static files (index.html, style.css, script.js) are no longer published.
 #
 # NOTE: this only takes effect once Pages "Source" is set to "GitHub Actions"
 # in repo Settings → Pages. Until then, nothing about the live site changes.
@@ -43,14 +43,13 @@ jobs:
           npm ci
           npm run build
 
-      - name: Assemble combined site
+      - name: Assemble site
         run: |
-          mkdir -p _site/portfolio
-          # Existing static site → root. Copy known top-level assets only.
-          cp index.html style.css script.js _site/ 2>/dev/null || true
+          mkdir -p _site
+          # React app → site root
+          cp -r react-portfolio/dist/. _site/
+          # Assets the React app links to via absolute paths (/images, /projects, /resume)
           cp -r images projects resume _site/ 2>/dev/null || true
-          # React app → /portfolio
-          cp -r react-portfolio/dist/. _site/portfolio/
           # Disable Jekyll processing
           touch _site/.nojekyll
 
