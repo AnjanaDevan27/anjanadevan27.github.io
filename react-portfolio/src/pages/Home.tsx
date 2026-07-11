@@ -103,10 +103,9 @@ const PROJECTS = [
 ];
 
 const STRENGTHS = [
-  { n: "01", t: "End-to-End Ownership", d: 'I take problems from raw data to deployed product — EDA, modeling, and shipping with FastAPI & Streamlit on GCP. Not just notebooks that stop at "it works locally."' },
-  { n: "02", t: "Production-Minded ML", d: "I build for reliability: automated data validation, test suites, and CI/CD over cloud pipelines (Airflow, BigQuery, Cloud Run) — so models hold up beyond the demo." },
-  { n: "03", t: "Business Impact", d: "I tie analysis to outcomes — co-purchase insights that shaped promotional strategy, revenue trends that informed decisions, and dashboards teams actually use." },
-  { n: "04", t: "Clarity & Curiosity", d: "I translate complex results for non-technical audiences and ask the question behind the question — because the right framing usually matters more than the fanciest model." },
+  { n: "01", t: "Data Engineering on GCP", d: "Automated data validation and ETL pipelines — flagging anomalous records before BigQuery ingestion." },
+  { n: "02", t: "LLM & RAG Systems", d: "RAG apps with LangChain, LLaMA, and pgvector, with Pydantic schema validation on LLM outputs." },
+  { n: "03", t: "Reliability End to End", d: "Evaluating RAG for faithfulness, grounding, and hallucination — so systems hold up beyond the demo." },
 ];
 
 const SKILLS: Record<string, string[]> = {
@@ -433,7 +432,7 @@ export default function Home() {
               <div>
                 <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "rgba(194,116,138,0.1)", border: "1px solid rgba(194,116,138,0.3)", borderRadius: "999px", padding: "0.3rem 0.9rem", marginBottom: "2rem" }}>
                   <span style={{ width: 6, height: 6, borderRadius: "50%", background: p.rose, display: "inline-block", animation: "pulse 2s infinite" }} />
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.7rem", color: p.rose, letterSpacing: "0.08em" }}>Open to full-time roles</span>
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.7rem", color: p.rose, letterSpacing: "0.08em" }}>Open to internships & full-time roles</span>
                 </div>
                 <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(3.5rem, 8vw, 6.5rem)", fontWeight: 700, color: p.text, lineHeight: 1.0, marginBottom: "1.25rem", letterSpacing: "-0.02em" }}>
                   Anjana
@@ -550,8 +549,8 @@ export default function Home() {
                 <SectionHeading line1="Data science" line2="that ships." dark={dark} />
               </div>
               <div style={{ paddingTop: "1rem" }}>
-                <p style={{ color: p.textMuted, lineHeight: 1.85, fontSize: "1.05rem", fontWeight: 300 }}>
-                  Give me a complex dataset and a problem worth solving — that's where I do my best work. I've built RAG-powered chatbots, toxicity classifiers, churn prediction models, and cloud data pipelines — across GCP, BigQuery, MySQL, and more. I'm actively seeking full-time roles as a <em style={{ color: p.rose, fontStyle: "normal", fontWeight: 600 }}>Data Scientist</em>, <em style={{ color: p.rose, fontStyle: "normal", fontWeight: 600 }}>Data Analyst</em>, or <em style={{ color: p.rose, fontStyle: "normal", fontWeight: 600 }}>AI/ML Engineer</em>. I believe the best insights come from asking the right question — and I'm never short of those.
+                <p style={{ color: p.textMuted, lineHeight: 1.85, fontSize: "1.05rem", fontWeight: 300, margin: 0 }}>
+                  I'm a Data Scientist with a Master's in Data Science from Northeastern University. I grew up across three countries and somewhere along the way fell in love with data. Today my work sits at the intersection of data engineering, NLP, LLMs, and RAG systems. I've built automated data validation and ETL pipelines on GCP and RAG applications with LangChain, LLaMA, and pgvector, and I'm drawn to problems where reliability matters end to end, from flagging anomalous records before BigQuery ingestion during my internship at Beauty Intelligence, to enforcing Pydantic schema validation on LLM responses and evaluating RAG systems for faithfulness, grounding, and hallucination. Open to internships and full time roles as a <em style={{ color: p.rose, fontStyle: "normal", fontWeight: 600 }}>Data Scientist</em>, <em style={{ color: p.rose, fontStyle: "normal", fontWeight: 600 }}>Data Analyst</em>, or <em style={{ color: p.rose, fontStyle: "normal", fontWeight: 600 }}>AI/ML Engineer</em>.
                 </p>
               </div>
             </div>
@@ -561,7 +560,7 @@ export default function Home() {
               <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 700, color: p.text, margin: 0 }}>What I Bring to the Table</h3>
               <p style={{ color: p.textMuted, marginTop: "0.5rem", fontSize: "0.95rem" }}>More than a tech stack — here's how I work.</p>
             </div>
-            <div className="grid-collapse" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "1rem" }}>
+            <div className="grid-collapse" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1rem" }}>
               {STRENGTHS.map((item, i) => (
                 <FadeCard key={i} delay={i * 90}>
                   <SpotlightZoomCard label={item.n} title={item.t} description={item.d} dark={dark} />
