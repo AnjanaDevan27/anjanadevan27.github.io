@@ -18,7 +18,7 @@ import { Github, Linkedin, FileText, Mail, Sun, Moon } from "lucide-react";
 
 // ── Constants ───────────────────────────────────────────────────────────────
 const SITE = "https://anjanadevan27.github.io";
-const RESUME_URL = `${SITE}/resume/Anjana_Deivasigamani_Resume_main.pdf`;
+const RESUME_URL = `${SITE}/resume/Anjana_Deivasigamani_Resume.pdf`;
 const PROFILE_URL = `${SITE}/images/profile.jpg`;
 const GITHUB_URL = "https://github.com/AnjanaDevan27";
 const LINKEDIN_URL = "https://www.linkedin.com/in/anjana-deivasigamani";
