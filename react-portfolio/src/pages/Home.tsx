@@ -549,9 +549,9 @@ export default function Home() {
                 <SectionHeading line1="Data science" line2="that ships." dark={dark} />
               </div>
               <div style={{ paddingTop: "1rem" }}>
-                <p style={{ color: p.textMuted, lineHeight: 1.85, fontSize: "1.05rem", fontWeight: 300, margin: 0 }}>
-                  I'm a Data Scientist with a Master's in Data Science from Northeastern University. I grew up across three countries and somewhere along the way fell in love with data. Today my work sits at the intersection of data engineering, NLP, LLMs, and RAG systems. I've built automated data validation and ETL pipelines on GCP and RAG applications with LangChain, LLaMA, and pgvector, and I'm drawn to problems where reliability matters end to end, from flagging anomalous records before BigQuery ingestion during my internship at Beauty Intelligence, to enforcing Pydantic schema validation on LLM responses and evaluating RAG systems for faithfulness, grounding, and hallucination. Open to internships and full time roles as a <em style={{ color: p.rose, fontStyle: "normal", fontWeight: 600 }}>Data Scientist</em>, <em style={{ color: p.rose, fontStyle: "normal", fontWeight: 600 }}>Data Analyst</em>, or <em style={{ color: p.rose, fontStyle: "normal", fontWeight: 600 }}>AI/ML Engineer</em>.
-                </p>
+               <p style={{ color: p.textMuted, lineHeight: 1.85, fontSize: "1.05rem", fontWeight: 300, margin: 0 }}>
+                I'm a Data Scientist with a Master's in Data Science from Northeastern University, open to internships and full time roles as a <em style={{ color: p.rose, fontStyle: "normal", fontWeight: 600 }}>Data Scientist</em>, <em style={{ color: p.rose, fontStyle: "normal", fontWeight: 600 }}>Data Analyst</em>, or <em style={{ color: p.rose, fontStyle: "normal", fontWeight: 600 }}>AI/ML Engineer</em>. My work spans data engineering, NLP, and RAG systems — building automated validation pipelines on GCP, RAG applications with LangChain and pgvector, and evaluating LLM outputs for faithfulness and hallucination so systems hold up beyond the demo.
+              </p>
               </div>
             </div>
 
