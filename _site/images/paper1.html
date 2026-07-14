@@ -1,0 +1,93 @@
+<style>html.dark,html.dark body{background:#241016}html.dark body>div{background:#241016!important;border-color:#3a1c23!important}</style>
+<style>
+.wrap{width:100%;aspect-ratio:1;background:#fff5f7;border-radius:12px;border:1px solid #f0c8d4;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.orb{position:absolute;border-radius:50%;animation:floatorb ease-in-out infinite}
+.o1{width:55px;height:55px;background:#fce8ee;top:2%;right:2%;animation-duration:11s}
+.o2{width:28px;height:28px;background:#f4c0d1;bottom:3%;left:3%;animation-duration:13s;animation-delay:-5s}
+
+.pipeline{display:flex;flex-direction:column;gap:8px;width:270px}
+
+.img-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.img-card{aspect-ratio:1;border-radius:8px;border:1.5px solid #e8aab8;background:#fff;display:flex;align-items:center;justify-content:center;animation:imgpop 3s ease-in-out infinite alternate;overflow:hidden}
+.img-card:nth-child(2){animation-delay:.3s}
+.img-card:nth-child(3){animation-delay:.6s}
+.img-card:nth-child(4){animation-delay:.9s}
+.img-card:nth-child(5){animation-delay:.2s}
+.img-card:nth-child(6){animation-delay:.5s}
+.img-card:nth-child(7){animation-delay:.8s}
+.img-card:nth-child(8){animation-delay:1.1s}
+
+.grid-label{font-family:sans-serif;font-size:9px;font-weight:700;color:#c47087;text-align:center;letter-spacing:.5px;text-transform:uppercase;margin-bottom:2px}
+
+.arrow-down{width:1.5px;height:14px;background:#e8aab8;margin:0 auto;border-radius:1px;position:relative;animation:fadepulse 2s ease-in-out infinite alternate}
+.arrow-down::after{content:'';position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);border:4px solid transparent;border-top:6px solid #e8aab8}
+
+.model-strip{background:#fff;border:1.5px solid #d4849a;border-radius:10px;padding:7px 12px;display:flex;align-items:center;justify-content:space-between;animation:modelpulse 3s ease-in-out infinite}
+.model-left{font-family:sans-serif;font-size:10px;font-weight:700;color:#b5667a}
+.model-sub{font-family:sans-serif;font-size:8.5px;color:#c47087;margin-top:1px}
+.model-dots{display:flex;gap:4px;align-items:center}
+.mdot{width:6px;height:6px;border-radius:50%;animation:dotwave 1.4s ease-in-out infinite}
+.mdot:nth-child(1){background:#fce8ee;animation-delay:0s}
+.mdot:nth-child(2){background:#d4849a;animation-delay:.2s}
+.mdot:nth-child(3){background:#b5667a;animation-delay:.4s}
+.mdot:nth-child(4){background:#d4849a;animation-delay:.6s}
+.mdot:nth-child(5){background:#fce8ee;animation-delay:.8s}
+
+.result-row{display:flex;gap:6px;justify-content:center}
+.rbadge{border-radius:20px;padding:5px 13px;font-family:sans-serif;font-size:10px;font-weight:700;display:flex;align-items:center;gap:5px;animation:badgepop 2.5s ease-in-out infinite alternate}
+.rb1{background:#fce8ee;border:1.5px solid #d4849a;color:#b5667a;animation-delay:0s}
+.rb2{background:#f4c0d1;border:1.5px solid #b5667a;color:#72243e;animation-delay:.6s}
+.rb3{background:#fce8ee;border:1.5px solid #d4849a;color:#b5667a;animation-delay:1.2s}
+.face{width:13px;height:13px;border-radius:50%;border:1.5px solid currentColor;position:relative;display:inline-block;flex-shrink:0}
+.face .e{width:2px;height:2px;border-radius:50%;background:currentColor;position:absolute;top:3px}
+.face .el{left:2px}.face .er{right:2px}
+.face.smile::after{content:'';position:absolute;bottom:2px;left:2px;right:2px;height:4px;border-radius:0 0 4px 4px;border:1.5px solid currentColor;border-top:none}
+.face.sad::after{content:'';position:absolute;bottom:3px;left:2px;right:2px;height:4px;border-radius:4px 4px 0 0;border:1.5px solid currentColor;border-bottom:none}
+.face.neutral::after{content:'';position:absolute;bottom:3px;left:3px;right:3px;height:1.5px;background:currentColor;border-radius:1px}
+
+@keyframes floatorb{0%,100%{transform:translate(0,0)}50%{transform:translate(-6px,8px)}}
+@keyframes imgpop{from{transform:scale(.95);opacity:.6}to{transform:scale(1);opacity:1}}
+@keyframes modelpulse{0%,100%{box-shadow:0 0 0 0 rgba(212,132,154,0)}50%{box-shadow:0 0 0 4px rgba(212,132,154,.15)}}
+@keyframes dotwave{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes fadepulse{from{opacity:.3}to{opacity:.9}}
+@keyframes badgepop{from{transform:translateY(2px);opacity:.6}to{transform:translateY(-2px);opacity:1}}
+</style>
+<div class="wrap">
+  <div class="orb o1"></div><div class="orb o2"></div>
+  <div class="pipeline">
+
+    <div class="grid-label">food review images + expressions</div>
+    <div class="img-grid">
+      <div class="img-card"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><ellipse cx="14" cy="17" rx="9" ry="5" fill="#f4c0d1"/><ellipse cx="14" cy="15" rx="9" ry="5" fill="#fce8ee" stroke="#e8aab8" stroke-width="1"/><ellipse cx="9" cy="12" rx="2" ry="3" fill="#f4c0d1" stroke="#d4849a" stroke-width=".8"/><ellipse cx="14" cy="11" rx="2" ry="3" fill="#e8aab8" stroke="#d4849a" stroke-width=".8"/><ellipse cx="19" cy="12" rx="2" ry="3" fill="#f4c0d1" stroke="#d4849a" stroke-width=".8"/></svg></div>
+      <div class="img-card"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="8" fill="#fce8ee" stroke="#e8aab8" stroke-width="1"/><circle cx="11" cy="12" r="1.5" fill="#d4849a"/><circle cx="17" cy="12" r="1.5" fill="#d4849a"/><path d="M10 17 Q14 21 18 17" stroke="#d4849a" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></div>
+      <div class="img-card"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="8" width="18" height="13" rx="3" fill="#fce8ee" stroke="#e8aab8" stroke-width="1"/><rect x="8" y="11" width="5" height="4" rx="1" fill="#f4c0d1"/><rect x="15" y="11" width="5" height="4" rx="1" fill="#e8aab8"/><rect x="10" y="17" width="8" height="1.5" rx="1" fill="#d4849a"/></svg></div>
+      <div class="img-card"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="8" fill="#fce8ee" stroke="#e8aab8" stroke-width="1"/><circle cx="11" cy="12" r="1.5" fill="#d4849a"/><circle cx="17" cy="12" r="1.5" fill="#d4849a"/><path d="M10 18 Q14 15 18 18" stroke="#d4849a" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></div>
+      <div class="img-card"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><ellipse cx="14" cy="16" rx="8" ry="6" fill="#fce8ee" stroke="#e8aab8" stroke-width="1"/><circle cx="10" cy="13" r="2" fill="#f4c0d1" stroke="#d4849a" stroke-width=".8"/><circle cx="14" cy="12" r="2" fill="#e8aab8" stroke="#d4849a" stroke-width=".8"/><circle cx="18" cy="13" r="2" fill="#f4c0d1" stroke="#d4849a" stroke-width=".8"/></svg></div>
+      <div class="img-card"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="8" fill="#fce8ee" stroke="#e8aab8" stroke-width="1"/><circle cx="11" cy="12" r="1.5" fill="#d4849a"/><circle cx="17" cy="12" r="1.5" fill="#d4849a"/><line x1="10" y1="17" x2="18" y2="17" stroke="#d4849a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="img-card"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="6" y="9" width="16" height="11" rx="3" fill="#fce8ee" stroke="#e8aab8" stroke-width="1"/><circle cx="10" cy="13" r="2" fill="#f4c0d1"/><circle cx="18" cy="13" r="2" fill="#e8aab8"/><rect x="11" y="15" width="6" height="1.5" rx="1" fill="#d4849a"/></svg></div>
+      <div class="img-card"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="8" fill="#fce8ee" stroke="#e8aab8" stroke-width="1"/><circle cx="11" cy="12" r="1.5" fill="#d4849a"/><circle cx="17" cy="12" r="1.5" fill="#d4849a"/><path d="M10 17 Q14 21 18 17" stroke="#d4849a" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></div>
+    </div>
+
+    <div class="arrow-down"></div>
+
+    <div class="model-strip">
+      <div>
+        <div class="model-left">deep learning model</div>
+        <div class="model-sub">CNN · emotion classifier</div>
+      </div>
+      <div class="model-dots">
+        <div class="mdot"></div><div class="mdot"></div><div class="mdot"></div>
+        <div class="mdot"></div><div class="mdot"></div>
+      </div>
+    </div>
+
+    <div class="arrow-down"></div>
+
+    <div class="result-row">
+      <div class="rbadge rb1"><div class="face smile"><div class="e el"></div><div class="e er"></div></div> positive</div>
+      <div class="rbadge rb2"><div class="face sad"><div class="e el"></div><div class="e er"></div></div> negative</div>
+      <div class="rbadge rb3"><div class="face neutral"><div class="e el"></div><div class="e er"></div></div> neutral</div>
+    </div>
+
+  </div>
+</div>

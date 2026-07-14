@@ -1,0 +1,67 @@
+<style>html.dark,html.dark body{background:#241016}html.dark body>div{background:#241016!important;border-color:#3a1c23!important}</style>
+<style>
+.wrap{width:100%;aspect-ratio:1;background:#fff5f7;border-radius:12px;border:1px solid #f0c8d4;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.orb{position:absolute;border-radius:50%;animation:floatorb ease-in-out infinite}
+.o1{width:72px;height:72px;background:#fce8ee;top:3%;right:3%;animation-duration:10s}
+.o2{width:36px;height:36px;background:#f4c0d1;bottom:4%;left:4%;animation-duration:12s;animation-delay:-4s}
+.o3{width:18px;height:18px;background:#e8aab8;top:20%;left:8%;animation-duration:9s;animation-delay:-2s}
+
+.center{display:flex;flex-direction:column;align-items:center;gap:18px}
+
+.plate-row{display:flex;align-items:center;gap:20px}
+
+.plate{position:relative;width:90px;height:90px;display:flex;align-items:center;justify-content:center}
+.ring1{position:absolute;width:90px;height:90px;border-radius:50%;border:2px solid #e8aab8;animation:rp 4s ease-in-out infinite}
+.ring2{position:absolute;width:68px;height:68px;border-radius:50%;border:2px solid #f4c0d1;animation:rp 4s ease-in-out infinite;animation-delay:.5s}
+.core{width:44px;height:44px;border-radius:50%;background:#fce8ee;border:2px solid #e8aab8;animation:cp 4s ease-in-out infinite}
+
+.fork{display:flex;flex-direction:column;align-items:center;gap:1px;animation:sway 3s ease-in-out infinite}
+.tines{display:flex;gap:3px;align-items:flex-end}
+.tine{width:2.5px;border-radius:1px 1px 0 0;background:#d4849a}
+.fshaft{width:2.5px;height:16px;background:#d4849a;border-radius:1px}
+
+.knife{display:flex;flex-direction:column;align-items:center;animation:sway 3s ease-in-out infinite;animation-delay:.4s}
+.kblade{width:4px;height:18px;background:#e8aab8;border-radius:2px 2px 4px 4px}
+.kshaft{width:2.5px;height:14px;background:#d4849a;border-radius:1px}
+
+.data-row{display:flex;gap:10px}
+.chip{background:#fff;border:1.5px solid #f4c0d1;border-radius:20px;padding:5px 13px;font-family:sans-serif;font-size:10.5px;font-weight:600;color:#b5667a;animation:softrise 3s ease-in-out infinite alternate}
+.chip:nth-child(1){animation-delay:0s}
+.chip:nth-child(2){background:#f4c0d1;border-color:#d4849a;color:#72243e;animation-delay:.7s}
+.chip:nth-child(3){animation-delay:1.4s}
+
+@keyframes floatorb{0%,100%{transform:translate(0,0)}50%{transform:translate(-7px,9px)}}
+@keyframes rp{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.06);opacity:1}}
+@keyframes cp{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+@keyframes sway{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes softrise{from{transform:translateY(2px);opacity:.6}to{transform:translateY(-2px);opacity:1}}
+</style>
+<div class="wrap">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="center">
+    <div class="plate-row">
+      <div class="fork">
+        <div class="tines">
+          <div class="tine" style="height:10px"></div>
+          <div class="tine" style="height:13px"></div>
+          <div class="tine" style="height:10px"></div>
+        </div>
+        <div class="fshaft"></div>
+      </div>
+      <div class="plate">
+        <div class="ring1"></div>
+        <div class="ring2"></div>
+        <div class="core"></div>
+      </div>
+      <div class="knife">
+        <div class="kblade"></div>
+        <div class="kshaft"></div>
+      </div>
+    </div>
+    <div class="data-row">
+      <div class="chip">visits</div>
+      <div class="chip">ratings</div>
+      <div class="chip">spending</div>
+    </div>
+  </div>
+</div>

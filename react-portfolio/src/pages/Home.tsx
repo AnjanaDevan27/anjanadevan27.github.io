@@ -58,7 +58,7 @@ const PROJECTS = [
     title: "SellerCentral Chatbot",
     description: "Production-grade RAG pipeline (LangChain + LLaMA, FAISS retrieval) for Amazon sellers — 95% response accuracy at sub-2s latency, deployed on GCP Cloud Run.",
     tags: ["RAG", "LangChain", "FAISS", "LLaMA", "GCP"],
-    link: `${SITE}/projects/project1.html`,
+    link: `/projects/project1.html`,
   },
   {
     categories: ["ML", "Data / SQL"],
@@ -66,7 +66,7 @@ const PROJECTS = [
     title: "The Beauty of Safety",
     description: "Toxicity analysis of 110K+ cosmetic-product records in R — 97% accuracy classifying product toxicity (Random Forest).",
     tags: ["R", "ggplot2", "Random Forest", "LightGBM"],
-    link: `${SITE}/projects/project2.html`,
+    link: `/projects/project2.html`,
   },
   {
     categories: ["Data / SQL", "Cloud"],
@@ -74,7 +74,7 @@ const PROJECTS = [
     title: "DineTrack",
     description: "Cloud SQL restaurant analytics pipeline in R — tracked revenue growth from $303K to $1.26M across 2018–2024.",
     tags: ["MySQL", "GCP Cloud SQL", "R", "RMarkdown"],
-    link: `${SITE}/projects/project3.html`,
+    link: `/projects/project3.html`,
   },
   {
     categories: ["ML"],
@@ -82,7 +82,7 @@ const PROJECTS = [
     title: "Customer Churn Prediction",
     description: "Streamlit app predicting telecom churn — Logistic Regression chosen from 5 models via GridSearchCV.",
     tags: ["Streamlit", "sklearn", "Joblib", "Python"],
-    link: `${SITE}/projects/project4.html`,
+    link: `/projects/project4.html`,
   },
   {
     categories: ["Data / SQL", "Cloud"],
@@ -90,7 +90,7 @@ const PROJECTS = [
     title: "Boston MBTA Real-Time Dashboard",
     description: "Production ETL pipeline pulling live MBTA transit data every 2 minutes via Airflow on AWS — 16M+ predictions ingested, visualized in a live Streamlit dashboard.",
     tags: ["Airflow", "PostgreSQL", "AWS", "Streamlit", "Python"],
-    link: `${SITE}/projects/project5.html`,
+    link: `/projects/project5.html`,
   },
   {
     categories: ["LLM / NLP", "Cloud"],
@@ -98,7 +98,7 @@ const PROJECTS = [
     title: "AI Teaching Assistant",
     description: "AI platform for university courses — RAG Q&A over lecture PDFs, at-risk student detection, and AI quiz/slide generation, deployed on GCP Cloud Run.",
     tags: ["RAG", "FastAPI", "React", "pgvector", "GCP"],
-    link: `${SITE}/projects/project6.html`,
+    link: `/projects/project6.html`,
   },
 ];
 

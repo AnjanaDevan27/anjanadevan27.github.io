@@ -1,0 +1,99 @@
+<style>html.dark,html.dark body{background:#241016}html.dark body>div{background:#241016!important;border-color:#3a1c23!important}</style>
+<style>
+.wrap{width:100%;aspect-ratio:1;background:#fff5f7;border-radius:12px;border:1px solid #f0c8d4;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.orb{position:absolute;border-radius:50%;animation:floatorb ease-in-out infinite}
+.o1{width:60px;height:60px;background:#fce8ee;top:2%;left:2%;animation-duration:11s}
+.o2{width:30px;height:30px;background:#f4c0d1;bottom:3%;right:4%;animation-duration:13s;animation-delay:-5s}
+.o3{width:16px;height:16px;background:#e8aab8;top:15%;right:8%;animation-duration:9s;animation-delay:-3s}
+
+.scene{display:flex;align-items:center;gap:18px}
+
+.left-col{display:flex;flex-direction:column;gap:10px;align-items:center}
+
+.bin-wrap{position:relative;display:flex;flex-direction:column;align-items:center}
+.bin-lid{width:52px;height:10px;background:#d4849a;border-radius:4px 4px 0 0;transform-origin:left center;animation:lidopen 3s ease-in-out infinite;margin-bottom:1px}
+.bin-body{width:46px;height:58px;background:#fce8ee;border:2px solid #d4849a;border-radius:0 0 6px 6px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.fill-level{width:100%;background:#f4c0d1;border-radius:0 0 4px 4px;animation:filllevel 3s ease-in-out infinite alternate}
+.bin-wifi{position:absolute;top:8px;left:50%;transform:translateX(-50%)}
+
+.sensor-bar{width:46px;height:7px;background:#e8aab8;border-radius:3px;border:1.5px solid #d4849a;display:flex;align-items:center;justify-content:center;margin-bottom:2px}
+.sensor-dot{width:4px;height:4px;border-radius:50%;background:#d4849a;animation:sensordot 1.2s ease-in-out infinite}
+
+.wave-group{position:absolute;top:-28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:3px}
+.wave{border-radius:50%;border:1.5px solid #d4849a;animation:wavepulse 1.8s ease-out infinite}
+.w1{width:12px;height:6px;animation-delay:0s}
+.w2{width:20px;height:10px;animation-delay:.3s}
+.w3{width:28px;height:14px;animation-delay:.6s}
+
+.right-col{display:flex;flex-direction:column;gap:8px}
+
+.status-card{background:#fff;border:1.5px solid #f4c0d1;border-radius:8px;padding:6px 10px;width:110px;animation:cardpop 3s ease-in-out infinite alternate}
+.status-card:nth-child(2){animation-delay:.5s}
+.status-card:nth-child(3){animation-delay:1s}
+.sc-label{font-family:sans-serif;font-size:9px;font-weight:700;color:#c47087;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.sc-bar{height:5px;border-radius:3px;background:#fce8ee;overflow:hidden}
+.sc-fill{height:100%;border-radius:3px;background:#d4849a;animation:scfill 2.5s ease-in-out infinite alternate}
+.f1{width:72%;animation-delay:0s}
+.f2{width:45%;animation-delay:.4s;background:#e8aab8}
+.f3{width:88%;animation-delay:.8s}
+.sc-val{font-family:sans-serif;font-size:11px;font-weight:700;color:#b5667a;margin-top:2px}
+
+.alert-pill{background:#f4c0d1;border:1.5px solid #d4849a;border-radius:20px;padding:5px 12px;font-family:sans-serif;font-size:9.5px;font-weight:700;color:#72243e;text-align:center;animation:alertpulse 2s ease-in-out infinite;width:110px}
+
+.node-chip{background:#fce8ee;border:1.5px solid #e8aab8;border-radius:6px;padding:4px 8px;display:flex;align-items:center;gap:5px;width:110px;animation:cardpop 3s ease-in-out infinite alternate;animation-delay:1.5s}
+.chip-dot{width:6px;height:6px;border-radius:50%;background:#d4849a;animation:sensordot 1s ease-in-out infinite}
+.chip-label{font-family:sans-serif;font-size:9px;font-weight:600;color:#b5667a}
+
+@keyframes floatorb{0%,100%{transform:translate(0,0)}50%{transform:translate(-7px,9px)}}
+@keyframes lidopen{0%,100%{transform:rotate(0deg)}40%,60%{transform:rotate(-28deg)}}
+@keyframes filllevel{from{height:20px}to{height:44px}}
+@keyframes wavepulse{0%{opacity:.8;transform:scale(.8)}100%{opacity:0;transform:scale(1.4)}}
+@keyframes sensordot{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.4);opacity:1}}
+@keyframes cardpop{from{transform:translateY(1px);opacity:.75}to{transform:translateY(-1px);opacity:1}}
+@keyframes scfill{from{transform:scaleX(.5);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}
+@keyframes alertpulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.03);opacity:1}}
+</style>
+<div class="wrap">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="scene">
+
+    <div class="left-col">
+      <div class="bin-wrap">
+        <div class="wave-group">
+          <div class="wave w3"></div>
+          <div class="wave w2"></div>
+          <div class="wave w1"></div>
+        </div>
+        <div class="sensor-bar"><div class="sensor-dot"></div></div>
+        <div class="bin-lid"></div>
+        <div class="bin-body">
+          <svg width="44" height="22" viewBox="0 0 44 22" style="position:absolute;top:6px;left:1px">
+            <path d="M22 18 Q14 14 10 8 M22 18 Q22 12 22 6 M22 18 Q30 14 34 8" fill="none" stroke="#e8aab8" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="22" cy="19" r="2" fill="#e8aab8"/>
+          </svg>
+          <div class="fill-level"></div>
+        </div>
+      </div>
+      <div style="font-family:sans-serif;font-size:9px;font-weight:700;color:#c47087;text-align:center;letter-spacing:.3px">NodeMCU</div>
+    </div>
+
+    <div class="right-col">
+      <div class="status-card">
+        <div class="sc-label">fill level</div>
+        <div class="sc-bar"><div class="sc-fill f1"></div></div>
+        <div class="sc-val">72%</div>
+      </div>
+      <div class="status-card">
+        <div class="sc-label">distance</div>
+        <div class="sc-bar"><div class="sc-fill f2"></div></div>
+        <div class="sc-val">18 cm</div>
+      </div>
+      <div class="alert-pill">⚠ bin nearly full</div>
+      <div class="node-chip">
+        <div class="chip-dot"></div>
+        <div class="chip-label">sending alert…</div>
+      </div>
+    </div>
+
+  </div>
+</div>
