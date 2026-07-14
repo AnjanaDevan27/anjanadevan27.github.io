@@ -1,6 +1,7 @@
 # Dependencies & build output
 node_modules/
 dist/
+_site/
 
 # Reference archive — kept locally, not committed
 *.zip

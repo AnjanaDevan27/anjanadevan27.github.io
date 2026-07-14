@@ -1,0 +1,8 @@
+{
+  "name": "anjanadevan27.github.io",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "verify": "./verify.sh"
+  }
+}

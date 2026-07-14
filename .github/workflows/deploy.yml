@@ -53,6 +53,26 @@ jobs:
           # Disable Jekyll processing
           touch _site/.nojekyll
 
+      - name: Check for broken links
+        run: |
+          # No -s / SPA fallback: with it, serve returns 200 for every path
+          # (masking 404s) so the link check would never catch a broken link.
+          # cleanUrls/trailingSlash false serves literal paths (no .html rewrite),
+          # matching GitHub Pages so relative links resolve the same way here.
+          printf '{ "cleanUrls": false, "trailingSlash": false }\n' > _site/serve.json
+          npx serve _site -l 8080 &
+          npx wait-on http://localhost:8080
+          # The root is a client-rendered React SPA, so linkinator (no JS) only
+          # sees the static shell. Seed the project pages so their back-links get
+          # crawled too.
+          SEEDS="http://localhost:8080"
+          for i in 1 2 3 4 5 6; do
+            SEEDS="$SEEDS http://localhost:8080/projects/project$i.html"
+          done
+          npx linkinator $SEEDS --recurse --skip "^(?!http://localhost)" || (echo "Broken links found — blocking deploy" && exit 1)
+          # Don't publish the local-only serve config to the live site.
+          rm -f _site/serve.json
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
